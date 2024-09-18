@@ -1,0 +1,12 @@
+<div class="adicionar-tarefa-container" [ngClass]="{'agua': selectedType === 'agua', 'receitas': selectedType === 'receitas'}">
+  <app-header></app-header>
+  
+  <button (click)="onSelect('Garrafa de 1 litro')">Feijão</button> 
+  <button (click)="onSelect('Garrafa de 2 litros')">Batata</button> 
+  <button (click)="onSelect('Galão de 5 litros')">Brócolis</button> 
+  <button (click)="onSelect('Galão de 10 litros')">Chá</button> 
+  
+  <button class="adicionar-button" (click)="onAdicionar()">Adicionar</button>    
+
+  <app-footer></app-footer>
+</div>

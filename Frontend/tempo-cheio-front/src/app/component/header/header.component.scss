@@ -1,0 +1,77 @@
+.perfil-info {
+    display: flex;
+    align-items: center; /* Alinha verticalmente a imagem e o texto */
+    position: absolute;
+    top: 10px; /* Distância do topo */
+    left: 10px; /* Distância da esquerda */
+  }
+  
+  .perfil-fransisco {
+    width: 80px; /* Largura da imagem ajustada para circular */
+    height: 80px; /* Altura da imagem ajustada para circular */
+    border-radius: 50%; /* Faz a imagem circular */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorção */
+    cursor: pointer;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  
+  .text-info {
+    margin-left: 10px; /* Espaçamento entre a imagem e o texto */
+  }
+  
+  .text-info p {
+    color: #1c1817; /* Cor do texto */
+    margin: 0; /* Remove a margem padrão do p */
+  }
+  
+  .text-info h4 {
+    color: #1c1817; /* Cor do texto */
+    margin: 0; /* Remove a margem padrão do h4 */
+  }
+  
+  button {
+    width: 80%;
+    max-width: 400px;
+    height: 50px; /* Altura ajustada dos botões */
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 20px;
+    margin: 10px 0;
+    cursor: pointer;
+    padding: 16px;
+  }
+  
+  .info-fav {
+    width: 120px; /* Largura ajustada */
+    height: 50px; /* Altura ajustada */
+    background-color: #1c1817; /* Cor ajustada */
+    border-radius: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  
+  .info-text {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-right: 10px; /* Espaçamento entre o texto e o botão */
+  }
+  
+  .star-button {
+    background: none;
+    border: none;
+    color: #fff; /* Cor do ícone da estrela */
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+  

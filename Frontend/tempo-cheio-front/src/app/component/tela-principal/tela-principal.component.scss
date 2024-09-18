@@ -1,0 +1,26 @@
+.tela-principal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px; /* Espaçamento entre os botões */
+
+  button {
+    width: 90%;
+    padding: 60px;
+    font-size: 1.5rem;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+  }
+
+  .agua-button {
+    background-color: #0097b2;
+  }
+
+  .receitas-button {
+    background-color: #d25543;
+  }
+}
