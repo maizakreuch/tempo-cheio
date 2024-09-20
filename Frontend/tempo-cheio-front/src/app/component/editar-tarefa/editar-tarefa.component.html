@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<div class="editar-tarefa-container">
+
+  <h2>
+    <i class="fas fa-file-alt icon-papel"></i> <!-- Ícone de papel -->
+    <span>Galão de 20L</span> <!-- Texto dentro de um span -->
+    <i class="fas fa-star icon-estrela"></i> <!-- Ícone de estrela -->
+  </h2>
+
+  <div class="number-selector-container">
+    <button class="decrement-button" (click)="decrement()">-</button>
+    <input type="number" [(ngModel)]="quantity" min="1" max="100" class="number-selector" />
+    <button class="increment-button" (click)="increment()">+</button>
+  </div>
+
+  <button class="iniciar-button">Iniciar</button>
+
+</div>
+<app-footer></app-footer>

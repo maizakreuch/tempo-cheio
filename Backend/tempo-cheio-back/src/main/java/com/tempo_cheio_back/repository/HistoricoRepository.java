@@ -1,5 +1,9 @@
 package com.tempo_cheio_back.repository;
 
-public class Historico {
-    // atributos e métodos da classe Historico
+
+import com.tempo_cheio_back.model.Historico;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface HistoricoRepository extends JpaRepository<Historico, Integer> {
+
 }

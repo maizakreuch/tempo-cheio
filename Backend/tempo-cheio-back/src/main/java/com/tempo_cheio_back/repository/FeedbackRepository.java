@@ -1,5 +1,10 @@
 package com.tempo_cheio_back.repository;
 
-public class Feedback {
-    // atributos e métodos da classe Feedback
+
+import com.tempo_cheio_back.model.Feedback;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface FeedbackRepository extends JpaRepository<Feedback, Integer> {
+
 }
+

@@ -1,0 +1,91 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Centraliza verticalmente
+    align-items: center;     // Centraliza horizontalmente
+    height: calc(100vh - 100px); // Altura da tela menos a altura do cabeçalho e rodapé
+  }
+  
+  .editar-tarefa-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;; // Centraliza os elementos internos
+    align-items: center;     // Centraliza os elementos internos
+    height: 550px;           // Altura fixa
+    width: 80%;              // Largura de 80% da tela
+    margin: 0 auto;         // Centraliza horizontalmente
+    background-color: #231f20; // Cor de fundo
+    color: #f1f1f1;         // Texto claro
+    padding: 20px;
+    border-radius: 25px;    // Arredondar bordas
+  
+    h2 {
+      display: flex;
+      justify-content: center; // Centraliza horizontalmente
+      align-items: center;     // Alinha verticalmente
+      font-size: 1.5rem;      // Ajuste o tamanho da fonte se necessário
+      margin-bottom: 20px;
+  
+      .icon-papel,
+      .icon-estrela {
+        margin: 0 80px; // Margem de 10px nos ícones
+        font-size: 1.2rem; // Ajuste o tamanho dos ícones, se necessário
+      }
+  
+      span {
+        margin: 0 15px; // Adiciona espaço entre os ícones e o texto
+      }
+    }
+  
+    .iniciar-button {
+      background-color: #0097b2;
+      color: #f1f1f1;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      margin-top: auto; // Empurra o botão para o fim da div
+    }    
+
+    .number-selector-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px; // Espaço entre o input e o botão
+
+        .number-selector {
+            width: 60px; // Ajuste a largura conforme necessário
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            text-align: center; // Centraliza o texto dentro do input
+            background-color: #f1f1f1;
+            color: #231f20;
+            margin: 0 10px; // Espaço entre os botões e o input
+        }
+
+        .increment-button,
+        .decrement-button {
+            background-color: #0097b2;
+            color: #f1f1f1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+    }
+
+    .iniciar-button {
+        background-color: #0097b2;
+        color: #f1f1f1;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.2rem;
+    }    
+    
+  }
+  

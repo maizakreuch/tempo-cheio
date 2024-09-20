@@ -1,12 +1,9 @@
+<app-header></app-header>
 
 <div class="tela-principal-container">
-  <app-header></app-header>
 
-
-    <button class="agua-button" (click)="navigateToAdicionarTarefa()">Água</button>
-    <button class="receitas-button" (click)="navigateToAdicionarTarefa()">Receitas</button>
+    <button [routerLink]="['/adicionar-tarefa', 'agua']" class="agua-button">Água</button>
+    <button [routerLink]="['/adicionar-tarefa', 'receitas']" class="receitas-button">Receitas</button>
   
-
-  <app-footer></app-footer>
-
 </div>
+<app-footer></app-footer>

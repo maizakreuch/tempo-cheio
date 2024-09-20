@@ -6,24 +6,25 @@ import { UsuarioCadastroComponent } from './component/usuario-cadastro/usuario-c
 import { UsuarioParabensComponent } from './component/usuario-parabens/usuario-parabens.component'; // Importe o componente
 import { TelaPrincipalComponent } from './component/tela-principal/tela-principal.component'; // Ajuste o caminho conforme necessário
 import { AdicionarTarefaComponent } from './component/adicionar-tarefa/adicionar-tarefa.component';
-import { UsuarioPerfilComponent } from './usuario-perfil/usuario-perfil.component';
+import { UsuarioPerfilComponent } from './component/usuario-perfil/usuario-perfil.component';
+import { UsuarioFavComponent } from './component/usuario-fav/usuario-fav.component';
+import { UsuarioHistoricoComponent } from './component/usuario-historico/usuario-historico.component';
+import { EditarTarefaComponent } from './component/editar-tarefa/editar-tarefa.component';
+
 
 const routes: Routes = [
-  { path: '', component: SplashScreenComponent }, // Splash screen inicial
+  { path: 'splash-screen', component: SplashScreenComponent }, // Splash screen inicial
   { path: 'usuario-login', component: UsuarioLoginComponent },
-  { path: 'usuario-cadastro', component: UsuarioCadastroComponent },
   { path: 'usuario-parabens', component: UsuarioParabensComponent }, // Adicione o caminho para o novo componente
-  { path: '', redirectTo: '/usuario-login', pathMatch: 'full' }, // Redireciona para a página de login por padrão
-  { path: 'tela-principal', component: TelaPrincipalComponent },
-  { path: '', component: SplashScreenComponent }, // Splash screen inicial
-  { path: '', component: UsuarioLoginComponent },
-  { path: 'tela-principal', component: TelaPrincipalComponent },  // Rota para a tela principal
-  { path: '', component: UsuarioLoginComponent },
-  { path: 'tela-principal', component: TelaPrincipalComponent },
   { path: 'usuario-cadastro', component: UsuarioCadastroComponent },  // Rota para a tela de cadastro
-  { path: 'adicionar-tarefa', component: AdicionarTarefaComponent },
-  { path: '', redirectTo: '/tela-principal', pathMatch: 'full' },
+  { path: 'adicionar-tarefa/:tipo', component: AdicionarTarefaComponent },
   { path: 'usuario-perfil', component: UsuarioPerfilComponent }, // Define a rota para o perfil do usuário
+  { path: 'usuario-fav', component: UsuarioFavComponent }, // Adicione a rota
+  { path: 'usuario-historico', component: UsuarioHistoricoComponent},
+  {path: 'editar-tarefa', component: EditarTarefaComponent},
+  { path: 'tela-principal', component: TelaPrincipalComponent },
+  { path: '', redirectTo: '/tela-principal', pathMatch: 'full' },
+
 ];
 
 @NgModule({

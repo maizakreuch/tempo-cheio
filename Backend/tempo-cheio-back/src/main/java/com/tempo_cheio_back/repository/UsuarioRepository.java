@@ -1,5 +1,9 @@
 package com.tempo_cheio_back.repository;
 
-public class Usuario {
-    // atributos e métodos da classe Usuario
+
+import com.tempo_cheio_back.model.Usuario;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
+
 }

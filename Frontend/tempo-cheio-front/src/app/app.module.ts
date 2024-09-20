@@ -12,7 +12,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AdicionarTarefaComponent } from './component/adicionar-tarefa/adicionar-tarefa.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
-import { UsuarioPerfilComponent } from './usuario-perfil/usuario-perfil.component';
+import { UsuarioPerfilComponent } from './component/usuario-perfil/usuario-perfil.component';
+import { UsuarioFavComponent } from './component/usuario-fav/usuario-fav.component';
+import { UsuarioHistoricoComponent } from './component/usuario-historico/usuario-historico.component';
+import { EditarTarefaComponent } from './component/editar-tarefa/editar-tarefa.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,10 @@ import { UsuarioPerfilComponent } from './usuario-perfil/usuario-perfil.componen
     AdicionarTarefaComponent,
     FooterComponent,
     HeaderComponent,
-    UsuarioPerfilComponent // Declare o componente
+    UsuarioPerfilComponent,
+    UsuarioFavComponent,
+    UsuarioHistoricoComponent,
+    EditarTarefaComponent // Declare o componente
   ],
   imports: [
     BrowserModule,
