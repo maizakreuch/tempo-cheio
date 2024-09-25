@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';  // Importe o Router para a navegação
+import { UsuarioService } from '../../servicos/usuario.service';
+import { Usuario } from '../../interfaces/Usuario';
 
 @Component({
   selector: 'app-usuario-cadastro',
@@ -9,8 +11,18 @@ import { Router } from '@angular/router';  // Importe o Router para a navegaçã
 })
 export class UsuarioCadastroComponent implements OnInit {
   cadastroForm!: FormGroup;
+  usuario: Usuario = {
+    id: 0,
+    nome: '',
+    senha: 0,
+    email: '',
+    status: false
+  };
 
-  constructor(private fb: FormBuilder, private router: Router) {}  // Adicione Router ao construtor
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private usuarioService: UsuarioService) { }  // Adicione Router ao construtor
 
   ngOnInit(): void {
     // Defina o formulário com os campos de cadastro
@@ -41,7 +53,10 @@ export class UsuarioCadastroComponent implements OnInit {
   onSubmit() {
     if (this.cadastroForm.valid) {
       // Se o formulário estiver válido, navegue para a próxima tela (por exemplo, uma tela de parabéns)
-      this.router.navigate(['/usuario-parabens']);
+      this.usuarioService.add(this.usuario).subscribe(() => {
+        this.router.navigate(['/usuario-parabens']);
+
+      });
     } else {
       // Caso contrário, exibe uma mensagem de erro ou feedback
       console.log('Preencha todos os campos corretamente.');

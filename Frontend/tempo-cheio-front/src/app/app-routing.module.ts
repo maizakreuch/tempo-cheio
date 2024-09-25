@@ -10,6 +10,8 @@ import { UsuarioPerfilComponent } from './component/usuario-perfil/usuario-perfi
 import { UsuarioFavComponent } from './component/usuario-fav/usuario-fav.component';
 import { UsuarioHistoricoComponent } from './component/usuario-historico/usuario-historico.component';
 import { EditarTarefaComponent } from './component/editar-tarefa/editar-tarefa.component';
+import { CronometroTarefaComponent } from './component/cronometro-tarefa/cronometro-tarefa.component';
+import { AvaliarTarefaComponent } from './component/avaliar-tarefa/avaliar-tarefa.component'; // ajuste o caminho conforme necessário
 
 
 const routes: Routes = [
@@ -22,6 +24,8 @@ const routes: Routes = [
   { path: 'usuario-fav', component: UsuarioFavComponent }, // Adicione a rota
   { path: 'usuario-historico', component: UsuarioHistoricoComponent},
   {path: 'editar-tarefa', component: EditarTarefaComponent},
+  { path: 'cronometro-tarefa', component: CronometroTarefaComponent },
+  { path: 'avaliar-tarefa', component: AvaliarTarefaComponent },
   { path: 'tela-principal', component: TelaPrincipalComponent },
   { path: '', redirectTo: '/tela-principal', pathMatch: 'full' },
 

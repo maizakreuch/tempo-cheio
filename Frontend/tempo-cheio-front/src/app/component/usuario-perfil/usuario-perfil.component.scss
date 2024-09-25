@@ -1,78 +1,102 @@
 .usuario-perfil-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-  
-    .tarefas-finalizadas {
-      margin-top: 100px;
-      text-align: center;
-      width: 100%;
-  
-      h2 {
-        color: #231f20;
-        font-size: 2rem;
-        margin-bottom: 20px;
-      }
-  
-      .botoes-tarefas {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-  
-        button {
-          width: 150px;
-          padding: 15px;
-          font-size: 1.2rem;
-          color: #f1f1f1;
-          border: none;
-          border-radius: 10px;
-          cursor: pointer;
-        }
-  
-        .agua-button {
-          background-color: #0097b2;
-        }
-  
-        .total-button {
-          background-color: #231f20;
-        }
-  
-        .receitas-button {
-          background-color: #d93f29;
-        }
-      }
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; // Alinha à esquerda
+  justify-content: flex-start;
+  padding: 20px; // Adicione um padding se necessário para distanciamento
+
+  .tarefas-finalizadas {
+    margin-top: 100px;
+    text-align: center;
+    width: 100%;
+
+    h2 {
+      color: #231f20;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
-  
-    .compartilhar-button {
-        background-color: #231f20;
-        color: #f1f1f1;
+
+    .botoes-tarefas {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+
+      button {
+        width: 150px;
         padding: 15px;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+        color: #f1f1f1;
         border: none;
         border-radius: 10px;
         cursor: pointer;
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-  
-        .icon {
-            margin-left: 10px;
-            color: #f1f1f1; // Define a cor do ícone aqui
-          }
+      }
+
+      .agua-button {
+        background-color: #0097b2;
+      }
+
+      .total-button {
+        background-color: #231f20;
+      }
+
+      .receitas-button {
+        background-color: #d93f29;
+      }
     }
+  }
 
+  .compartilhar-button {
+      background-color: #231f20;
+      color: #f1f1f1;
+      padding: 15px;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 20px auto; // Centraliza o botão
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    .informacoes-usuario {
-        margin-top: 30px;
-        padding: 20px;
-        position: relative;
-        left: 20px; // Alinha à esquerda, ajuste conforme necessário
+      .icon {
+          margin-left: 10px;
+          color: #f1f1f1; // Define a cor do ícone aqui
       }
-      
-      .informacoes-usuario h5 {
-        font-size: 1.2rem; // Igual ao tamanho dos botões
-        margin: 10px 0; // Espaçamento entre os elementos
+  }
+
+  .informacoes-usuario {
+      margin-top: 30px;
+      padding: 20px;
+      width: 100%; // Largura total para o contêiner do formulário
+
+      h5 {
+          font-size: 1.2rem; // Igual ao tamanho dos botões
+          margin: 10px 0; // Espaçamento entre os elementos
       }
+
+      input {
+          width: 90%; // Largura total do input
+          padding: 10px; // Espaçamento interno
+          margin-bottom: 15px; // Espaço abaixo de cada campo
+          border: 1px solid #ccc; // Bordas do input
+          border-radius: 5px; // Bordas arredondadas
+          font-size: 1rem; // Tamanho da fonte
+
+          &:focus {
+              outline: none; // Remove a borda de foco
+              border-color: #0097b2; // Muda a cor da borda quando em foco
+          }
+      }
+
+      .alterar-senha-button {
+          background-color: #0097b2;
+          color: #f1f1f1;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 1.2rem;
+          margin-top: 10px; // Margem para separar do último campo
+      }
+  }
 }

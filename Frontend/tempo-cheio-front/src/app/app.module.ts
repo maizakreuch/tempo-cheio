@@ -16,6 +16,9 @@ import { UsuarioPerfilComponent } from './component/usuario-perfil/usuario-perfi
 import { UsuarioFavComponent } from './component/usuario-fav/usuario-fav.component';
 import { UsuarioHistoricoComponent } from './component/usuario-historico/usuario-historico.component';
 import { EditarTarefaComponent } from './component/editar-tarefa/editar-tarefa.component';
+import { CronometroTarefaComponent } from './component/cronometro-tarefa/cronometro-tarefa.component';
+import { AvaliarTarefaComponent } from './component/avaliar-tarefa/avaliar-tarefa.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -31,13 +34,16 @@ import { EditarTarefaComponent } from './component/editar-tarefa/editar-tarefa.c
     UsuarioPerfilComponent,
     UsuarioFavComponent,
     UsuarioHistoricoComponent,
-    EditarTarefaComponent // Declare o componente
+    EditarTarefaComponent,
+    CronometroTarefaComponent,
+    AvaliarTarefaComponent // Declare o componente
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, // Certifique-se de incluir FormsModule
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

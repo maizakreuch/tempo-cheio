@@ -1,0 +1,86 @@
+:host {
+    background-color: #d94029c5;
+    height: 100vh;
+    width: 100%;
+    display: block;
+}
+
+.avaliar-tarefa-container {
+    width: 300px; /* Largura fixa */
+    height: auto; /* Altura se ajusta ao conteúdo */
+    margin: 0 auto; /* Centraliza a div horizontalmente */
+    padding: 10px; /* Adiciona espaçamento interno */
+    background-color: #231f20; /* Cor de fundo da div */
+    color: #f1f1f1; /* Cor do texto */
+    border-radius: 10px; /* Bordas arredondadas */
+    text-align: center; /* Centraliza o texto */
+
+    /* Para centralizar verticalmente na tela */
+    position: absolute; /* Faz a posição da div ser absoluta */
+    top: 50%; /* Posiciona 50% do topo da tela */
+    left: 50%; /* Posiciona 50% da esquerda da tela */
+    transform: translate(-50%, -50%); /* Ajusta a posição para realmente centralizar */
+
+    display: flex; /* Ativa o modelo de layout flexível */
+    flex-direction: column; /* Organiza os elementos em uma coluna */
+    justify-content: center; /* Centraliza verticalmente os filhos */
+    align-items: center; /* Centraliza horizontalmente os filhos */
+    
+    flex-wrap: wrap; /* Permite que os filhos se movam para a próxima linha quando necessário */
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .estrelas {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+
+        .fa-star {
+            color: #ccc; // Cor padrão
+            cursor: pointer;
+            font-size: 2rem;
+            margin: 0 5px;
+
+            &.selected {
+                color: #d93f29; // Cor ao selecionar
+            }
+        }
+    }
+
+    .experiencia-input {
+        width: 100%; /* Faz o input ocupar toda a largura disponível */
+        height: 50px;
+        padding: 5px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: #f1f1f1;
+        box-sizing: border-box; /* Inclui padding e border na largura total */
+        text-align: center; /* Centraliza o texto do placeholder */
+    }
+
+    .botoes {
+        display: flex;
+        justify-content: space-between;
+        width: 70%;
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            background-color: #f1f1f1; // Cor dos botões
+
+            &:hover {
+                background-color: #d93f29; // Cor ao passar o mouse
+            }
+        }
+    }
+
+    .select{
+        background-color: #d93f29;
+    }
+}

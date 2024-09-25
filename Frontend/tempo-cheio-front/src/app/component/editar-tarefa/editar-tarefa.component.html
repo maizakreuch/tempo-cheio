@@ -2,19 +2,44 @@
 
 <div class="editar-tarefa-container">
 
-  <h2>
+  <div class="header">
     <i class="fas fa-file-alt icon-papel"></i> <!-- Ícone de papel -->
-    <span>Galão de 20L</span> <!-- Texto dentro de um span -->
+    <h2>
+      Galão de 20L
+    </h2>
     <i class="fas fa-star icon-estrela"></i> <!-- Ícone de estrela -->
-  </h2>
-
-  <div class="number-selector-container">
-    <button class="decrement-button" (click)="decrement()">-</button>
-    <input type="number" [(ngModel)]="quantity" min="1" max="100" class="number-selector" />
-    <button class="increment-button" (click)="increment()">+</button>
   </div>
 
-  <button class="iniciar-button">Iniciar</button>
+  <div class="number-selector-container">
+    <input type="number" class="number-selector" value="1" /> <!-- valor inicial -->
+
+    <div class="button-unit-container">
+      <button class="ml-button">ml</button>
+      <button class="l-button">L</button>
+    </div>
+  </div>
+
+
+  <div class="clock-container">
+    <div class="clock-display">
+      <input type="number" class="hours" min="0" max="23" value="00" />
+      <span>:</span>
+      <input type="number" class="minutes" min="0" max="59" value="00" />
+      <span>:</span>
+      <input type="number" class="seconds" min="0" max="59" value="00" />
+    </div>
+  </div>
+
+  <div class="clock-filter">
+    <h2>Fontes de Água</h2>
+    <select class="filter" name="fonteAgua" id="fonteAgua">
+      <option value="filtro">Filtro</option>
+      <option value="torneira">Torneira</option>
+      <option value="mangueira">Mangueira</option>
+    </select>
+  </div>
+
+  <button class="salvar-button" routerLink="/cronometro-tarefa">Salvar</button>
 
 </div>
 <app-footer></app-footer>

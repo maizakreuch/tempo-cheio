@@ -1,91 +1,169 @@
 :host {
+  display: flex;
+  justify-content: center; // Centraliza horizontalmente
+  align-items: center; // Centraliza verticalmente
+  height: 100vh; // Altura total da viewport para centralização vertical
+}
+
+.editar-tarefa-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Centraliza conteúdo verticalmente dentro do container
+  align-items: center; // Centraliza conteúdo horizontalmente dentro do container
+  height: 550px; // Altura do container
+  width: 80%; // Largura do container
+  margin: 0 auto; // Centraliza o container horizontalmente
+  background-color: #231f20; // Cor de fundo
+  color: #f1f1f1; // Cor do texto
+  padding: 30px 20px; // Padding interno
+  border-radius: 25px; // Bordas arredondadas
+}
+
+
+.number-selector-container,
+.clock-container {
+  display: flex;
+  justify-content: center; // Centraliza horizontalmente
+  align-items: center; // Centraliza verticalmente
+  padding: 10px;
+  font-size: 2rem; // Tamanho da fonte
+  color: #f1f1f1; // Cor do texto
+  gap: 10px; // Espaço entre os elementos
+  width: 100%; // Largura total para ocupar o espaço do container
+
+  input {
+    width: 60px; // Largura dos inputs
+    background-color: transparent; // Fundo transparente
+    border: none; // Sem bordas
+    color: #f1f1f1; // Cor do texto
+    text-align: center; // Centraliza o texto
+    font-size: 2rem; // Tamanho da fonte
+    appearance: none; // Remove as setinhas padrão
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none; // Remove setinhas no Chrome
+    }
+
+    &:focus {
+      outline: none; // Remove a borda de foco
+    }
+  }
+
+  span {
+    font-size: 2rem; // Tamanho da fonte
+    color: #f1f1f1; // Cor do texto
+    margin: 0 10px; // Espaço entre números e separadores
+  }
+}
+
+.number-selector-container {
+  display: flex;
+  flex-direction: column; // Alinha os elementos verticalmente
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+
+  .number-selector {
+    width: 100%; // Ocupará toda a largura disponível
+    max-width: 120px; // Tamanho máximo se necessário
+    height: 50px; // Altura fixa para igualar aos botões
+    text-align: center; // Centraliza o texto
+    font-size: 2rem; // Tamanho da fonte
+    background-color: transparent; // Fundo transparente
+    border: 2px solid #0097b2; // Borda opcional
+    color: #f1f1f1; // Cor do texto
+    padding: 0; // Remove padding para garantir que o tamanho fique igual aos botões
+    margin: 10px 0; // Margem igual acima e abaixo do input
+    border-radius: 20px; // Borda arredondada para o input
+
+    appearance: none; // Remove as setinhas padrão
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none; // Remove setinhas no Chrome
+    }
+
+    &:focus {
+      outline: none; // Remove a borda de foco
+    }
+  }
+
+  .button-unit-container {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between; // Espaço entre os botões
+    width: 100%; // Ocupará toda a largura disponível
+    margin-top: 10px;
+
+    .ml-button,
+    .l-button {
+      flex: 1; // Faz os botões ocuparem o mesmo espaço
+      background-color: #0097b2; // Cor de fundo dos botões
+      color: #f1f1f1; // Cor do texto
+      padding: 15px; // Aumenta o tamanho dos botões
+      border: none; // Sem bordas
+      border-radius: 20px; // Bordas arredondadas
+      cursor: pointer; // Cursor de ponteiro
+      font-size: 1.5rem; // Tamanho da fonte
+      margin: 0 5px; // Espaço entre os botões
+      height: 50px; // Altura fixa para igualar ao input
+    }
+  }
+}
+
+
+
+.salvar-button {
+  background-color: #0097b2; // Cor de fundo do botão iniciar
+  color: #f1f1f1; // Cor do texto
+  padding: 10px 20px; // Padding interno
+  border: none; // Sem bordas
+  border-radius: 20px; // Bordas arredondadas
+  cursor: pointer; // Cursor de ponteiro
+  font-size: 1.2rem; // Tamanho da fonte
+  margin-top: auto; // Margem superior automática para empurrar para baixo
+}
+
+.clock-container {
+  display: flex;
+  justify-content: center; // Centraliza horizontalmente
+  align-items: center; // Centraliza verticalmente
+  margin-top: 30px; // Margem superior
+
+  .clock-display {
+    display: flex;
+    justify-content: center; // Centraliza horizontalmente
+    align-items: center; // Centraliza verticalmente
+    padding: 10px; // Padding interno
+    font-size: 2rem; // Tamanho da fonte
+    color: #f1f1f1; // Cor do texto
+    gap: 10px; // Espaço entre os elementos
+  }
+
+  .clock-filter {
+    display: flex;
+    flex-direction: column; // Alinha verticalmente
     justify-content: center; // Centraliza verticalmente
-    align-items: center;     // Centraliza horizontalmente
-    height: calc(100vh - 100px); // Altura da tela menos a altura do cabeçalho e rodapé
   }
-  
-  .editar-tarefa-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;; // Centraliza os elementos internos
-    align-items: center;     // Centraliza os elementos internos
-    height: 550px;           // Altura fixa
-    width: 80%;              // Largura de 80% da tela
-    margin: 0 auto;         // Centraliza horizontalmente
-    background-color: #231f20; // Cor de fundo
-    color: #f1f1f1;         // Texto claro
-    padding: 20px;
-    border-radius: 25px;    // Arredondar bordas
-  
-    h2 {
-      display: flex;
-      justify-content: center; // Centraliza horizontalmente
-      align-items: center;     // Alinha verticalmente
-      font-size: 1.5rem;      // Ajuste o tamanho da fonte se necessário
-      margin-bottom: 20px;
-  
-      .icon-papel,
-      .icon-estrela {
-        margin: 0 80px; // Margem de 10px nos ícones
-        font-size: 1.2rem; // Ajuste o tamanho dos ícones, se necessário
-      }
-  
-      span {
-        margin: 0 15px; // Adiciona espaço entre os ícones e o texto
-      }
-    }
-  
-    .iniciar-button {
-      background-color: #0097b2;
-      color: #f1f1f1;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      margin-top: auto; // Empurra o botão para o fim da div
-    }    
+}
 
-    .number-selector-container {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px; // Espaço entre o input e o botão
+.filter {
+  width: 100%; // Largura total
+  background-color: #0097b2; // Cor de fundo
+  color: #f1f1f1; // Cor do texto
+  font-size: 20px; // Tamanho da fonte
+  padding: 10px; // Padding interno
+  border-radius: 10px; // Bordas arredondadas
+  border: none; // Sem bordas
+}
 
-        .number-selector {
-            width: 60px; // Ajuste a largura conforme necessário
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.2rem;
-            text-align: center; // Centraliza o texto dentro do input
-            background-color: #f1f1f1;
-            color: #231f20;
-            margin: 0 10px; // Espaço entre os botões e o input
-        }
+.header {
+  display: flex;
+  align-items: center; // Alinha verticalmente
+  justify-content: space-between; // Espaço entre os elementos
+  width: 80%; // Largura do header
 
-        .increment-button,
-        .decrement-button {
-            background-color: #0097b2;
-            color: #f1f1f1;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-    }
-
-    .iniciar-button {
-        background-color: #0097b2;
-        color: #f1f1f1;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1.2rem;
-    }    
-    
+  i {
+    font-size: 25px; // Tamanho do ícone
   }
-  
+}
+

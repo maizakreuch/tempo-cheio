@@ -3,19 +3,19 @@
 
   <form [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
     <label for="nome">Nome</label>
-    <input id="nome" formControlName="nome" type="text" placeholder="Digite seu nome" />
+    <input id="nome" formControlName="nome" type="text" placeholder="Digite seu nome" [(ngModel)]="usuario.nome"/>
     <div *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched">
       <small>O nome é obrigatório.</small>
     </div>
 
     <label for="email">Email</label>
-    <input id="email" formControlName="email" type="email" placeholder="Digite seu email" />
+    <input id="email" formControlName="email" type="email" placeholder="Digite seu email" [(ngModel)]="usuario.email"/>
     <div *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched">
       <small>Email é obrigatório e deve ser válido.</small>
     </div>
 
     <label for="senha">Senha</label>
-    <input id="senha" formControlName="senha" type="password" placeholder="Digite sua senha" />
+    <input id="senha" formControlName="senha" type="password" placeholder="Digite sua senha" [(ngModel)]="usuario.senha"/>
     <div *ngIf="cadastroForm.get('senha')?.invalid && cadastroForm.get('senha')?.touched">
       <small>A senha é obrigatória e deve ter no mínimo 6 caracteres.</small>
     </div>
