@@ -3,9 +3,11 @@ package com.tempo_cheio_back.service;
 import com.tempo_cheio_back.model.Historico;
 import com.tempo_cheio_back.repository.HistoricoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class HistoricoService {
 
     @Autowired

@@ -3,9 +3,11 @@ package com.tempo_cheio_back.service;
 import com.tempo_cheio_back.model.Tarefa;
 import com.tempo_cheio_back.repository.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TarefaService {
 
     @Autowired

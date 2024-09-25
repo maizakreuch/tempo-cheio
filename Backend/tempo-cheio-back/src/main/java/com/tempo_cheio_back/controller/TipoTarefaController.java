@@ -12,32 +12,32 @@ import java.util.List;
 public class TipoTarefaController {
 
     @Autowired
-    TipoTarefaService tipoTipoTarefaService;
+    TipoTarefaService tipoTarefaService;
 
     @GetMapping
     public ResponseEntity<List<TipoTarefa>> findAll() {
-        return ResponseEntity.ok(tipoTipoTarefaService.findAll());
+        return ResponseEntity.ok(tipoTarefaService.findAll());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<TipoTarefa> findById(@PathVariable Integer id) {
-        return ResponseEntity.ok(tipoTipoTarefaService.findById(id));
+        return ResponseEntity.ok(tipoTarefaService.findById(id));
     }
 
     @PostMapping
     public ResponseEntity<TipoTarefa> create(@RequestBody TipoTarefa tipoTipoTarefa) {
-        return ResponseEntity.ok(tipoTipoTarefaService.save(tipoTipoTarefa));
+        return ResponseEntity.ok(tipoTarefaService.save(tipoTipoTarefa));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<TipoTarefa> update(@RequestBody TipoTarefa tipoTipoTarefa) {
-        return ResponseEntity.ok(tipoTipoTarefaService.save(tipoTipoTarefa));
+        return ResponseEntity.ok(tipoTarefaService.save(tipoTipoTarefa));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<TipoTarefa> delete(@PathVariable Integer id) {
-        TipoTarefa tipoTipoTarefa = tipoTipoTarefaService.findById(id);
-        tipoTipoTarefaService.delete(tipoTipoTarefa);
+        TipoTarefa tipoTipoTarefa = tipoTarefaService.findById(id);
+        tipoTarefaService.delete(tipoTipoTarefa);
         return ResponseEntity.ok(tipoTipoTarefa);
     }
 

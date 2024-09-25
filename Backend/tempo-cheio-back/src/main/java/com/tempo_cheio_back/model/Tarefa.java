@@ -27,9 +27,6 @@ public class Tarefa {
     @Nonnull
     private String titulo;
 
-    @Nonnull
-    private String tempoUnidade;
-
     private Integer valorTempo;
 
     @Nonnull
@@ -37,8 +34,9 @@ public class Tarefa {
 
     private Integer quantidade;
 
-    @OneToMany(mappedBy = "tarefa", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Historico> historico;
-
     private boolean favorito;
+
+    @OneToMany(mappedBy = "tarefaHistorico")
+    private List<Historico> historicos;
+
 }

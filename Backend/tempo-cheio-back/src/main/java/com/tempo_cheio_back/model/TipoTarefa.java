@@ -1,10 +1,7 @@
 package com.tempo_cheio_back.model;
 
 import jakarta.annotation.Nonnull;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,4 +20,9 @@ public class TipoTarefa {
 
     @Nonnull
     private String nome;
+
+    @ManyToOne
+    @JoinColumn(name = "tipo_tarefa_id")
+    private Tarefa tarefa;
+
 }

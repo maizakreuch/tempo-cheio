@@ -1,10 +1,7 @@
 package com.tempo_cheio_back.model;
 
 import jakarta.annotation.Nonnull;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,15 +19,16 @@ public class Historico {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
 
-    @Nonnull
     private Date data;
 
-    @Nonnull
-    private String usuario;
-
-    @Nonnull
-    private Tarefa tarefa;
-
-    @Nonnull
     private String fonte;
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuarioHistorico;
+
+    @ManyToOne
+    @JoinColumn(name = "tarefa_id")
+    private Tarefa tarefaHistorico;
+
 }
