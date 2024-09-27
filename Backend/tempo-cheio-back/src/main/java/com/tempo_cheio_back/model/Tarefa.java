@@ -1,12 +1,7 @@
 package com.tempo_cheio_back.model;
 
 import jakarta.annotation.Nonnull;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,8 +22,18 @@ public class Tarefa {
     @Nonnull
     private String titulo;
 
-    private Integer valorTempo;
+    private String fonteFiltro;
 
+    private String fonteTorneira;
+
+    private String fonteMangueira;
+
+    private Integer valorHora;
+
+    private Integer valorMinuto;
+
+    private Integer valorSegundo;
+    
     @Nonnull
     private String medidaUnidade;
 
@@ -38,5 +43,9 @@ public class Tarefa {
 
     @OneToMany(mappedBy = "tarefaHistorico")
     private List<Historico> historicos;
+
+    @ManyToOne
+    @JoinColumn(name = "tipo_tarefa_id")
+    private TipoTarefa tipoTarefa;
 
 }

@@ -21,8 +21,5 @@ public class TipoTarefa {
     @Nonnull
     private String nome;
 
-    @ManyToOne
-    @JoinColumn(name = "tipo_tarefa_id")
-    private Tarefa tarefa;
 
 }
