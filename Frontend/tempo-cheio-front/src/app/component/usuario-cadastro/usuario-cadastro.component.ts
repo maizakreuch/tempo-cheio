@@ -29,7 +29,7 @@ export class UsuarioCadastroComponent implements OnInit {
     this.cadastroForm = this.fb.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required, Validators.minLength(6)]],
+      senha: ['', [Validators.required, Validators.minLength(8)]],
       confirmarSenha: ['', Validators.required]
     }, {
       validators: this.matchingPasswords('senha', 'confirmarSenha')  // Validação personalizada para senhas correspondentes

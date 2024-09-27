@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TelaPrincipalComponent } from './component/tela-principal/tela-principal.component';
 import { SplashScreenComponent } from './component/splash-screen/splash-screen.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AdicionarTarefaComponent } from './component/adicionar-tarefa/adicionar-tarefa.component';
+// import { AdicionarTarefaComponent } from './component/adicionar-tarefa/adicionar-tarefa.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
 import { UsuarioPerfilComponent } from './component/usuario-perfil/usuario-perfil.component';
@@ -28,7 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     UsuarioParabensComponent,
     TelaPrincipalComponent,
     SplashScreenComponent,
-    AdicionarTarefaComponent,
+    // AdicionarTarefaComponent,
     FooterComponent,
     HeaderComponent,
     UsuarioPerfilComponent,

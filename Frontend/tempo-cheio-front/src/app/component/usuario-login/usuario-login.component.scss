@@ -1,28 +1,35 @@
-.login-container {
-  width: 90%;
-  max-width: 100%;
-  margin: 5% auto;
-  padding: 5%;
-  background-color: #231f20; // Cor de fundo do container
-  color: #f1f1f1;            // Cor do texto dentro do container
-  border-radius: 15px;
+:host {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;            
+  justify-content: center; // Centraliza horizontalmente
+  align-items: center; // Centraliza verticalmente
+  height: 100vh; // Altura total da viewport para centralização vertical
 }
 
-body{
-  
-  font-size: medium;
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Centraliza conteúdo verticalmente dentro do container
+  align-items: center; // Centraliza conteúdo horizontalmente dentro do container
+  height: 550px; // Altura do container
+  width: 80%; // Largura do container
+  margin: 0 auto; // Centraliza o container horizontalmente
+  background-color: #231f20; // Cor de fundo
+  color: #f1f1f1; // Cor do texto
+  padding: 30px 20px; // Padding interno
+  border-radius: 25px; // Bordas arredondadas
 }
+
 
 form {
   display: flex;
   flex-direction: column;
-  width: 100%;          // Certifique-se de que o formulário ocupe a largura total do contêiner
-  color: #f1f1f1;      // Cor do texto dentro do formulário
+  width: 100%;                  // Certifique-se de que o formulário ocupe a largura total do contêiner
+  color: #f1f1f1;              // Cor do texto dentro do formulário
+}
+
+h1{
+  margin-bottom: 7%;
+
 }
 
 input {
@@ -30,53 +37,67 @@ input {
   padding: 3%;
   font-size: 1.2rem;
   margin-bottom: 3%;
-  background-color: #f1f1f1; // Cor de fundo do input
+  background-color: #f1f1f1;   // Cor de fundo do input
   border-radius: 15px;
-  box-sizing: border-box;
+  box-sizing: border-box;       // Inclui padding e border na largura total
+  margin-top: 5px;
 }
 
+.usuario-perfil-container label {
+  text-align: left;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+
+
 button {
-  width: 80%;          // Ajuste a largura dos botões para 80% do formulário
-  max-width: 300px;     // Defina um valor máximo para a largura dos botões
+  width: 80%;                   // Ajusta a largura dos botões para 80% do formulário
+  max-width: 300px;            // Define um valor máximo para a largura dos botões
   padding: 2%;
   font-size: 1.2rem;
   border-radius: 15px;
   border: none;
-  background-color: #f1f1f1; // Cor de fundo do botão
-  color: #231f20;      // Cor do texto no botão
+  background-color: #f1f1f1;   // Cor de fundo do botão
+  color: #231f20;               // Cor do texto no botão
   cursor: pointer;
-  margin: 1% auto;     // Adiciona margens automáticas para centralizar o botão
-  text-align: center;  // Alinha o texto no centro
+  margin: 1% auto;             // Adiciona margens automáticas para centralizar o botão
+  text-align: center;           // Alinha o texto no centro
 }
 
 .entrar-button {
-  display: inline-block;   // Faz com que o link se comporte como um botão
+  display: inline-block;        // Faz com que o link se comporte como um botão
   width: 80%;
   max-width: 300px;
   padding: 2%;
   font-size: 1.2rem;
   border-radius: 15px;
   border: none;
-  background-color: #f1f1f1; // Cor de fundo para o botão "Entrar"
-  color: #231f20;            // Cor do texto no botão "Entrar"
+  background-color: #f1f1f1;   // Cor de fundo para o botão "Entrar"
+  color: #231f20;               // Cor do texto no botão "Entrar"
   cursor: pointer;
-  text-align: center;       // Alinha o texto no centro
-  text-decoration: none;    // Remove o sublinhado do link
-  margin: 1% auto;          // Margens automáticas para centralizar
+  text-align: center;           // Alinha o texto no centro
+  text-decoration: none;        // Remove o sublinhado do link
+  margin: 1% auto;              // Margens automáticas para centralizar
+  margin-top: 20%;
+
 }
 
 .cadastre-button {
-  display: inline-block;   // Faz com que o link se comporte como um botão
+  display: inline-block;        // Faz com que o link se comporte como um botão
   width: 80%;
   max-width: 300px;
   padding: 2%;
   font-size: 1.2rem;
   border-radius: 15px;
   border: none;
-  background-color: #0097b2; // Cor de fundo para o botão "Entrar"
-  color: #f1f1f1;            // Cor do texto no botão "Entrar"
+  background-color: #0097b2;   // Cor de fundo para o botão "Cadastre-se"
+  color: #f1f1f1;               // Cor do texto no botão "Cadastre-se"
   cursor: pointer;
-  text-align: center;       // Alinha o texto no centro
-  text-decoration: none;    // Remove o sublinhado do link
-  margin: 1% auto;          // Margens automáticas para centralizar
+  text-align: center;           // Alinha o texto no centro
+  text-decoration: none;        // Remove o sublinhado do link
+  margin: 1% auto;              // Margens automáticas para centralizar
+  margin-top: 3%;
 }

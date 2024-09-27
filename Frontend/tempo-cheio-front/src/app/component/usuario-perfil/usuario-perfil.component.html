@@ -1,6 +1,6 @@
 <app-header></app-header>
 <div class="usuario-perfil-container">
-  
+
     <div class="tarefas-finalizadas">
       <h2>Tarefas Finalizadas</h2>
       <div class="botoes-tarefas">
@@ -9,21 +9,32 @@
         <button class="receitas-button">Receitas</button>
       </div>
     </div>
-  
-    <button class="compartilhar-button">
+
+    <button class="compartilhar-button" (click)="compartilhar()">
         Compartilhar <span class="icon"><i class="fas fa-tint"></i></span>
     </button>
     
     <div class="informacoes-usuario">
         <h5>Nome</h5>
-        <input type="text" placeholder="Fransisco de Assis Kreuch" />
+        <input type="text" placeholder="Francisco de Assis Kreuch" />
         <h5>E-mail</h5>
         <input type="email" placeholder="fakreuch@gmail.com" />
         <h5>Senha (alterar senha)</h5>
         <input type="password" placeholder="********" />
-        <button class="alterar-senha-button">Alterar Senha</button> <!-- Botão para alterar a senha -->
+        <button class="alterar-senha-button" (click)="mostrarModalVerificacao()">Alterar Senha</button>
     </div>
-  
+
+    <!-- Modal de verificação de email -->
+    <div class="modal" *ngIf="modalVerificacaoVisible">
+      <div class="modal-content">
+        <span class="close" (click)="fecharModalVerificacao()">&times;</span>
+        <label>Verificar Email:</label>
+        <input type="email" [(ngModel)]="emailParaVerificacao" placeholder="Digite seu email" />
+        <button class="verificar-button" (click)="verificarEmail()">Verificar Email</button>
+        <p *ngIf="mensagemEmail">{{ mensagemEmail }}</p>
+      </div>
+    </div>
+
 </div>
 <app-footer></app-footer>
 

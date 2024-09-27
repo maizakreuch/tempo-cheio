@@ -3,43 +3,40 @@
 <div class="editar-tarefa-container">
 
   <div class="header">
-    <i class="fas fa-file-alt icon-papel"></i> <!-- Ícone de papel -->
-    <h2>
-      Galão de 20L
-    </h2>
-    <i class="fas fa-star icon-estrela"></i> <!-- Ícone de estrela -->
+    <!-- Ícone de estrela -->
+    <i class="fas fa-star icon-estrela" (click)="marcarComoFavorito()"></i>
+    <input type="text" id="titulo" name="titulo" placeholder="Título" class="titulo-selector" [(ngModel)]="tarefa.titulo">
   </div>
 
   <div class="number-selector-container">
-    <input type="number" class="number-selector" value="1" /> <!-- valor inicial -->
+    <input type="number" id="quantidade" name="quantidade" class="number-selector" value="1" [(ngModel)]="tarefa.quantidade" /> <!-- valor inicial -->
 
     <div class="button-unit-container">
-      <button class="ml-button">ml</button>
-      <button class="l-button">L</button>
+      <button type="button" id="medidaUnidade" name="medidaUnidade" class="ml-button" [ngClass]="medidaUnidade === 'L' ? 'inativo' : ''" (click)="trocarMedida('ML')">ml</button>
+      <button type="button" id="medidaUnidade" name="medidaUnidade" class="l-button" [ngClass]="medidaUnidade === 'ML' ? 'inativo' : ''" (click)="trocarMedida('L')">L</button>
     </div>
   </div>
-
 
   <div class="clock-container">
     <div class="clock-display">
-      <input type="number" class="hours" min="0" max="23" value="00" />
+      <input type="number" id="valorHora" name="valorHora" [(ngModel)]="tarefa.valorHora" class="hours" min="0" max="23" />
       <span>:</span>
-      <input type="number" class="minutes" min="0" max="59" value="00" />
+      <input type="number" id="valorMinuto" name="valorMinuto" [(ngModel)]="tarefa.valorMinuto" class="minutes" min="0" max="59" value="00" />
       <span>:</span>
-      <input type="number" class="seconds" min="0" max="59" value="00" />
+      <input type="number" id="valorSegundo" name="valorSegundo" [(ngModel)]="tarefa.valorSegundo" class="seconds" min="0" max="59" value="00" />
     </div>
   </div>
 
-  <div class="clock-filter">
-    <h2>Fontes de Água</h2>
-    <select class="filter" name="fonteAgua" id="fonteAgua">
+  <div class="clock-fonte">
+    <h2> {{ tarefa.fonteDescricao }} </h2>
+    <select class="fonte" name="fonte" id="fonte" [(ngModel)]="tarefa.fonte"> <!-- Aplicar ngModel ao select -->
       <option value="filtro">Filtro</option>
       <option value="torneira">Torneira</option>
       <option value="mangueira">Mangueira</option>
     </select>
   </div>
 
-  <button class="salvar-button" routerLink="/cronometro-tarefa">Salvar</button>
+  <button class="salvar-button" (click)="salvar()">Salvar</button>
 
 </div>
 <app-footer></app-footer>

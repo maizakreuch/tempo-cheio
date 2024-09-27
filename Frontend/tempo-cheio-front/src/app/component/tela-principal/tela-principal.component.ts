@@ -7,16 +7,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./tela-principal.component.scss']
 })
 export class TelaPrincipalComponent {
+
   constructor(private router: Router) {}
 
-  navigateToAdicionarTarefa() {
-    this.router.navigate(['/adicionar-tarefa']);
+  // Função para navegar para a tela de editar tarefa
+  navigateToEditarTarefa() {
+    this.router.navigate(['/editar-tarefa']);
   }
 
-  // Se você precisar de uma função específica para lidar com a seleção:
+  // Função chamada ao selecionar o tipo de tarefa (água ou receitas)
   onSelect(type: string) {
     console.log(`Selecionado: ${type}`);
-    // Você pode adicionar lógica aqui para lidar com a seleção se necessário
-    this.navigateToAdicionarTarefa(); // Navega para a página de adicionar tarefa
+
+    // Navega para a página de editar tarefa
+    this.navigateToEditarTarefa();
   }
 }

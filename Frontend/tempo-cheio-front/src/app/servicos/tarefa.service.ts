@@ -31,4 +31,9 @@ export class TarefaService {
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+  
+  addToFavoritos(tarefa: Tarefa): Observable<any> {
+    return this.http.post('URL_DO_SERVIÇO/favoritos', tarefa);
+  }
+  
 }

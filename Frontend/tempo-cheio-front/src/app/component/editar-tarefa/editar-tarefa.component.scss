@@ -17,6 +17,17 @@
   color: #f1f1f1; // Cor do texto
   padding: 30px 20px; // Padding interno
   border-radius: 25px; // Bordas arredondadas
+
+  .titulo-selector {
+    text-align: center;
+    width: 100%; // Ocupará toda a largura disponível
+    height: 50px; // Altura fixa para igualar aos botões
+    font-size: 2rem; // Tamanho da fonte
+    border: 2px solid #231f20; // Borda opcional
+    color: #231f20; // Cor do texto
+    margin: 10px 0; // Margem acima e abaixo do input
+    border-radius: 20px; // Borda arredondada
+  }
 }
 
 
@@ -38,16 +49,6 @@
     color: #f1f1f1; // Cor do texto
     text-align: center; // Centraliza o texto
     font-size: 2rem; // Tamanho da fonte
-    appearance: none; // Remove as setinhas padrão
-
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      appearance: none; // Remove setinhas no Chrome
-    }
-
-    &:focus {
-      outline: none; // Remove a borda de foco
-    }
   }
 
   span {
@@ -66,26 +67,32 @@
 
   .number-selector {
     width: 100%; // Ocupará toda a largura disponível
-    max-width: 120px; // Tamanho máximo se necessário
     height: 50px; // Altura fixa para igualar aos botões
     text-align: center; // Centraliza o texto
     font-size: 2rem; // Tamanho da fonte
-    background-color: transparent; // Fundo transparente
     border: 2px solid #0097b2; // Borda opcional
     color: #f1f1f1; // Cor do texto
-    padding: 0; // Remove padding para garantir que o tamanho fique igual aos botões
+    margin: 10px 0; // Margem acima e abaixo do input
+    border-radius: 20px; // Borda arredondada
+  }
+
+
+  input {
+    font-size: 2rem; // Tamanho da fonte
+    border: 2px solid #0097b2; // Borda opcional
+    color: #f1f1f1; // Cor do texto
+
+  }
+
+  .tarefa.titulo {
+    width: 80%; // Ocupará toda a largura disponível
+    height: 50px; // Altura fixa para igualar aos botões
+    text-align: center; // Centraliza o texto
+    font-size: 2rem; // Tamanho da fonte
+    border: 2px solid #0097b2; // Borda opcional
+    color: #f1f1f1; // Cor do texto
     margin: 10px 0; // Margem igual acima e abaixo do input
     border-radius: 20px; // Borda arredondada para o input
-
-    appearance: none; // Remove as setinhas padrão
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      appearance: none; // Remove setinhas no Chrome
-    }
-
-    &:focus {
-      outline: none; // Remove a borda de foco
-    }
   }
 
   .button-unit-container {
@@ -107,10 +114,13 @@
       margin: 0 5px; // Espaço entre os botões
       height: 50px; // Altura fixa para igualar ao input
     }
+
+    .inativo {
+      background-color: #231f20;
+      border: #0097b2 solid 1px;
+    }
   }
 }
-
-
 
 .salvar-button {
   background-color: #0097b2; // Cor de fundo do botão iniciar
@@ -139,14 +149,14 @@
     gap: 10px; // Espaço entre os elementos
   }
 
-  .clock-filter {
+  .clock-fonte {
     display: flex;
     flex-direction: column; // Alinha verticalmente
     justify-content: center; // Centraliza verticalmente
   }
 }
 
-.filter {
+.fonte {
   width: 100%; // Largura total
   background-color: #0097b2; // Cor de fundo
   color: #f1f1f1; // Cor do texto
@@ -159,11 +169,12 @@
 .header {
   display: flex;
   align-items: center; // Alinha verticalmente
-  justify-content: space-between; // Espaço entre os elementos
   width: 80%; // Largura do header
 
   i {
-    font-size: 25px; // Tamanho do ícone
+    font-size: 35px; // Tamanho do ícone
+    margin-right: 25px; // Espaçamento entre os ícones (ajuste conforme necessário)
+    cursor: pointer;
   }
-}
 
+}

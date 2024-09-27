@@ -1,20 +1,22 @@
-.cadastro-container {
-  width: 90%;
-  max-width: 100%;
-  margin: 5% auto;
-  padding: 5%;
-  background-color: #231f20;
-  color: #f1f1f1;
-  border-radius: 15px;
+:host {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
+  justify-content: center; // Centraliza horizontalmente
+  align-items: center; // Centraliza verticalmente
+  height: 100vh; // Altura total da viewport para centralização vertical
 }
 
-body {
-  font-size: medium;
+.cadastro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Centraliza conteúdo verticalmente dentro do container
+  align-items: center; // Centraliza conteúdo horizontalmente dentro do container
+  height: 550px; // Altura do container
+  width: 80%; // Largura do container
+  margin: 0 auto; // Centraliza o container horizontalmente
+  background-color: #231f20; // Cor de fundo
+  color: #f1f1f1; // Cor do texto
+  padding: 30px 20px; // Padding interno
+  border-radius: 25px; // Bordas arredondadas
 }
 
 form {
@@ -31,7 +33,10 @@ form {
 }
 
 label {
-  font-size: 1.2rem;
+  text-align: left;      // Alinha o texto à esquerda
+  width: 100%;           // Garante que o label ocupe toda a largura do contêiner
+  margin-bottom: 5px;  
+  margin-top: 5px;
 }
 
 input {
@@ -42,20 +47,24 @@ input {
   border-radius: 15px;
   box-sizing: border-box;
   margin-bottom: 3%;
+  margin-top: 5px;
+
+}
+
+h1{
+  margin-bottom: 7%;
 }
 
 button {
   background-color: #0097b2;
   color: #f1f1f1;
-  margin-top: 1%;
+  margin-top: 15%;
   padding: 2%;
   font-size: 1.2rem;
   border-radius: 15px;
   text-align: center;
   display: block;
   width: 80%;
-  max-width: 300px;
-  text-decoration: none;
   margin-bottom: 3%;
 }
 
