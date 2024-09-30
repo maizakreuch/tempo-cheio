@@ -25,8 +25,8 @@ const routes: Routes = [
   { path: 'usuario-historico', component: UsuarioHistoricoComponent},
   {path: 'editar-tarefa', component: EditarTarefaComponent},
   { path: 'editar-tarefa/:tipo', component: EditarTarefaComponent },
-  { path: 'cronometro-tarefa', component: CronometroTarefaComponent },
-  { path: 'avaliar-tarefa', component: AvaliarTarefaComponent },
+  { path: 'cronometro-tarefa/:id', component: CronometroTarefaComponent },
+  { path: 'avaliar-tarefa/:id', component: AvaliarTarefaComponent },
   { path: 'tela-principal', component: TelaPrincipalComponent },
   { path: '', redirectTo: '/tela-principal', pathMatch: 'full' },
 

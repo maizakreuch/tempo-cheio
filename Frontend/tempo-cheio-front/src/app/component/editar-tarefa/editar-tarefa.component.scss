@@ -65,21 +65,27 @@
   align-items: center;
   padding: 10px;
 
-  .number-selector {
+  .number-selector-agua,
+  .number-selector-receitas {
     width: 100%; // Ocupará toda a largura disponível
     height: 50px; // Altura fixa para igualar aos botões
     text-align: center; // Centraliza o texto
     font-size: 2rem; // Tamanho da fonte
-    border: 2px solid #0097b2; // Borda opcional
     color: #f1f1f1; // Cor do texto
     margin: 10px 0; // Margem acima e abaixo do input
     border-radius: 20px; // Borda arredondada
   }
 
+  .number-selector-agua{
+    border: 2px solid #0097b2; // Borda opcional
+  }
+
+  .number-selector-receitas{
+    border: 2px solid #d93f29; // Borda opcional
+  }
 
   input {
     font-size: 2rem; // Tamanho da fonte
-    border: 2px solid #0097b2; // Borda opcional
     color: #f1f1f1; // Cor do texto
 
   }
@@ -94,36 +100,50 @@
     margin: 10px 0; // Margem igual acima e abaixo do input
     border-radius: 20px; // Borda arredondada para o input
   }
-
-  .button-unit-container {
-    display: flex;
-    justify-content: space-between; // Espaço entre os botões
-    width: 100%; // Ocupará toda a largura disponível
-    margin-top: 10px;
-
-    .ml-button,
-    .l-button {
-      flex: 1; // Faz os botões ocuparem o mesmo espaço
-      background-color: #0097b2; // Cor de fundo dos botões
-      color: #f1f1f1; // Cor do texto
-      padding: 15px; // Aumenta o tamanho dos botões
-      border: none; // Sem bordas
-      border-radius: 20px; // Bordas arredondadas
-      cursor: pointer; // Cursor de ponteiro
-      font-size: 1.5rem; // Tamanho da fonte
-      margin: 0 5px; // Espaço entre os botões
-      height: 50px; // Altura fixa para igualar ao input
-    }
-
-    .inativo {
-      background-color: #231f20;
-      border: #0097b2 solid 1px;
-    }
-  }
 }
 
-.salvar-button {
-  background-color: #0097b2; // Cor de fundo do botão iniciar
+.button-unit-container {
+  display: flex;
+  justify-content: space-between; // Espaço entre os botões
+  width: 100%; // Ocupará toda a largura disponível
+  margin-top: 10px;
+
+  .ml-button-agua,
+  .l-button-agua,
+  .ml-button-receitas, 
+  .l-button-receitas {
+  flex: 1; // Faz os botões ocuparem o mesmo espaço
+  color: #f1f1f1; // Cor do texto
+  padding: 15px; // Aumenta o tamanho dos botões
+  border: none; // Sem bordas
+  border-radius: 20px; // Bordas arredondadas
+  cursor: pointer; // Cursor de ponteiro
+  font-size: 1.5rem; // Tamanho da fonte
+  margin: 0 5px; // Espaço entre os botões
+  height: 50px; // Altura fixa para igualar ao input
+}
+
+.ml-button-agua,
+.l-button-agua{
+  background-color: #0097b2; // Cor de fundo dos botões
+  border: 2px solid #0097b2; // Borda opcional
+  }
+
+.ml-button-receitas,
+.l-button-receitas{
+  background-color: #d93f29; // Cor de fundo dos botões
+  border: 2px solid #d93f29; // Borda opcional
+  }
+
+
+
+.inativo {
+  background-color: #231f20;
+}
+}
+
+.salvar-button-agua,
+.salvar-button-receitas {
   color: #f1f1f1; // Cor do texto
   padding: 10px 20px; // Padding interno
   border: none; // Sem bordas
@@ -131,6 +151,14 @@
   cursor: pointer; // Cursor de ponteiro
   font-size: 1.2rem; // Tamanho da fonte
   margin-top: auto; // Margem superior automática para empurrar para baixo
+}
+
+.salvar-button-agua {
+  background-color: #0097b2; // Cor de fundo do botão iniciar
+}
+
+.salvar-button-receitas {
+  background-color: #d93f29; // Cor de fundo do botão iniciar
 }
 
 .clock-container {
@@ -156,14 +184,22 @@
   }
 }
 
-.fonte {
+.fonte-agua,
+.fonte-receitas {
   width: 100%; // Largura total
-  background-color: #0097b2; // Cor de fundo
   color: #f1f1f1; // Cor do texto
   font-size: 20px; // Tamanho da fonte
   padding: 10px; // Padding interno
   border-radius: 10px; // Bordas arredondadas
   border: none; // Sem bordas
+}
+
+.fonte-agua {
+  background-color: #0097b2; // Cor de fundo
+}
+
+.fonte-receitas {
+  background-color: #d93f29; // Cor de fundo
 }
 
 .header {

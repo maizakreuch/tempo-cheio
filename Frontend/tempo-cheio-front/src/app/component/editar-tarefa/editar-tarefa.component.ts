@@ -11,11 +11,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class EditarTarefaComponent implements OnInit {
   cadastroForm!: FormGroup;
-  medidaUnidade: string = 'ML';
+  medidaUnidade: string = '';
 
   tarefa: Tarefa = {
     id: 0,
-    quantity: 0,
     titulo: '', // Este campo será definido ao inicializar a tarefa
     valorHora: 0,
     valorMinuto: 0,
@@ -23,8 +22,9 @@ export class EditarTarefaComponent implements OnInit {
     medidaUnidade: '',
     quantidade: 0,
     favorito: false,
-    tipoTarefa: undefined,
-    fonte: 'filtro' // Inicializando com uma opção padrão
+    tipoTarefa: '',
+    fonte: '', // Inicializando com uma opção padrão
+    fonteDescricao: '' // Campo para descrever a fonte da tarefa
   };
 
   tipo!: string; // Usando o operador de declaração não nula
@@ -33,34 +33,46 @@ export class EditarTarefaComponent implements OnInit {
     private router: Router,
     private tarefaService: TarefaService,
     private route: ActivatedRoute // Injeta o ActivatedRoute
-  ) { }
+  ) {}
 
-  quantity: number = 20;
 
   ngOnInit(): void {
     // Captura o parâmetro 'tipo' da rota
     this.route.paramMap.subscribe(params => {
       this.tipo = params.get('tipo') || ''; // Armazena o tipo de tarefa
       this.inicializarTarefa(); // Inicializa a tarefa com base no tipo
+      this.tarefa.tipoTarefa = this.tipo;
+
+      if (this.tipo == 'agua') {
+        this.medidaUnidade = 'ML'
+      }
+
+      if (this.tipo == 'receitas') {
+        this.medidaUnidade = 'G'
+      }
+
+      this.validarFonte();
     });
   }
 
   inicializarTarefa(): void {
     if (this.tipo === 'agua') {
-      this.tarefa.fonteDescricao = 'Tarefa de Água';
+      this.tarefa.fonteDescricao = 'Filtro de Água';
       // Configure outras propriedades específicas para água, se necessário
     } else if (this.tipo === 'receitas') {
-      this.tarefa.fonteDescricao = 'Tarefa de Receitas';
+      this.tarefa.fonteDescricao = 'Filtro de Receitas';
       // Configure outras propriedades específicas para receitas, se necessário
     }
   }
 
   salvar() {
     this.tarefa.medidaUnidade = this.medidaUnidade;
-    this.tarefaService.add(this.tarefa).subscribe(() => {
-      this.router.navigate(['/cronometro-tarefa']);
+    this.tarefaService.add(this.tarefa).subscribe(novaTarefa => {
+      this.router.navigate(['/cronometro-tarefa', novaTarefa.id]);
     });
   }
+
+  
 
   marcarComoFavorito() {
     this.tarefa.favorito = true;
@@ -72,9 +84,20 @@ export class EditarTarefaComponent implements OnInit {
   trocarMedida(medida: string) {
     this.medidaUnidade = medida;
   }
-  
+
   // Método para lidar com a mudança na seleção do filtro
   onFonteChange(event: any) {
     this.tarefa.fonte = event.target.value; // Atualiza a propriedade fonte com o valor selecionado
   }
+
+  validarFonte() {
+    if (this.tipo == 'agua') {
+      this.tarefa.fonte = 'Filtro';
+    }
+    if (this.tipo == 'receitas') {
+      this.tarefa.fonte = 'Fogão';
+    }
+  }
+  
+
 }

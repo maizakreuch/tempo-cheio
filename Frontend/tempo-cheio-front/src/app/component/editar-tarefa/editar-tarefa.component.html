@@ -4,39 +4,88 @@
 
   <div class="header">
     <!-- Ícone de estrela -->
-    <i class="fas fa-star icon-estrela" (click)="marcarComoFavorito()"></i>
-    <input type="text" id="titulo" name="titulo" placeholder="Título" class="titulo-selector" [(ngModel)]="tarefa.titulo">
+    <i class="fas fa-star icon-estrela" (click)="marcarComoFavorito()" *ngIf="tarefa.id"></i>
+    <input type="text" id="titulo" name="titulo" placeholder="Título" class="titulo-selector" 
+    [(ngModel)]="tarefa.titulo">
   </div>
 
   <div class="number-selector-container">
-    <input type="number" id="quantidade" name="quantidade" class="number-selector" value="1" [(ngModel)]="tarefa.quantidade" /> <!-- valor inicial -->
+    <input type="number" id="quantidade" name="quantidade" class="number-selector" value="1" 
+    [(ngModel)]="tarefa.quantidade"
+    [ngClass]="{
+      'inativo': tarefa.quantidade === 0,
+      'number-selector-agua': tipo == 'agua',
+      'number-selector-receitas': tipo == 'receitas',
+    }"/> <!-- valor inicial -->
 
-    <div class="button-unit-container">
-      <button type="button" id="medidaUnidade" name="medidaUnidade" class="ml-button" [ngClass]="medidaUnidade === 'L' ? 'inativo' : ''" (click)="trocarMedida('ML')">ml</button>
-      <button type="button" id="medidaUnidade" name="medidaUnidade" class="l-button" [ngClass]="medidaUnidade === 'ML' ? 'inativo' : ''" (click)="trocarMedida('L')">L</button>
+    <div class="button-unit-container" *ngIf="tipo == 'agua'">
+      <button type="button" id="medidaUnidade" name="medidaUnidade" 
+      [ngClass]="{
+        'inativo': medidaUnidade === 'L',
+        'ml-button-agua': tipo == 'agua',
+      }" (click)="trocarMedida('ML')">ml</button>
+
+      <button type="button" id="medidaUnidade" name="medidaUnidade" class="l-button-agua"
+      [ngClass]="{
+        'inativo': medidaUnidade === 'ML',
+        'l-button-agua': tipo == 'agua',
+      }" (click)="trocarMedida('L')">L</button>
+    </div>
+
+    <div class="button-unit-container" *ngIf="tipo == 'receitas'">
+      <button type="button" id="medidaUnidade" name="medidaUnidade" 
+      [ngClass]="{
+        'inativo': medidaUnidade === 'KG',
+        'ml-button-receitas': tipo == 'receitas',
+      }" (click)="trocarMedida('G')">g</button>
+
+      <button type="button" id="medidaUnidade" name="medidaUnidade" class="l-button-agua"
+      [ngClass]="{
+        'inativo': medidaUnidade === 'G',
+        'l-button-receitas': tipo == 'receitas',
+      }" (click)="trocarMedida('KG')">Kg</button>
     </div>
   </div>
 
   <div class="clock-container">
     <div class="clock-display">
-      <input type="number" id="valorHora" name="valorHora" [(ngModel)]="tarefa.valorHora" class="hours" min="0" max="23" />
+      <input type="number" id="valorHora" name="valorHora" 
+      [(ngModel)]="tarefa.valorHora" class="hours" min="0" max="23" />
       <span>:</span>
-      <input type="number" id="valorMinuto" name="valorMinuto" [(ngModel)]="tarefa.valorMinuto" class="minutes" min="0" max="59" value="00" />
+      <input type="number" id="valorMinuto" name="valorMinuto" 
+      [(ngModel)]="tarefa.valorMinuto" class="minutes" min="0" max="59" value="00" />
       <span>:</span>
-      <input type="number" id="valorSegundo" name="valorSegundo" [(ngModel)]="tarefa.valorSegundo" class="seconds" min="0" max="59" value="00" />
+      <input type="number" id="valorSegundo" name="valorSegundo" 
+      [(ngModel)]="tarefa.valorSegundo" class="seconds" min="0" max="59" value="00" />
     </div>
   </div>
 
-  <div class="clock-fonte">
+  <div class="clock-fonte" *ngIf="tipo === 'agua'">
     <h2> {{ tarefa.fonteDescricao }} </h2>
-    <select class="fonte" name="fonte" id="fonte" [(ngModel)]="tarefa.fonte"> <!-- Aplicar ngModel ao select -->
-      <option value="filtro">Filtro</option>
-      <option value="torneira">Torneira</option>
-      <option value="mangueira">Mangueira</option>
+    <select class="fonte-agua" name="fonte" id="fonte" [(ngModel)]="tarefa.fonte"> <!-- Aplicar ngModel ao select -->
+      <option value="Filtro">Filtro</option>
+      <option value="Torneira">Torneira</option>
+      <option value="Mangueira">Mangueira</option>
     </select>
   </div>
 
-  <button class="salvar-button" (click)="salvar()">Salvar</button>
+  <div class="clock-fonte" *ngIf="tipo === 'receitas'">
+    <h2> {{ tarefa.fonteDescricao }} </h2>
+    <select class="fonte-receitas" name="fonte" id="fonte" [(ngModel)]="tarefa.fonte"> <!-- Aplicar ngModel ao select -->
+      <option value="Forno">Forno</option>
+      <option value="Fogão">Fogão</option>
+      <option value="Fogão à lenha">Fogão à lenha</option>
+    </select>
+  </div>
+
+  <button 
+    (click)="salvar()"
+    [ngClass]="{
+      'salvar-button-agua': tipo == 'agua',
+      'salvar-button-receitas': tipo == 'receitas',
+    }"
+  >Salvar
+  </button>
 
 </div>
 <app-footer></app-footer>

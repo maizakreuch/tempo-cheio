@@ -1,8 +1,8 @@
-import { Historico } from './Historico'; // Ajuste o caminho conforme a localização do arquivo
+import { Tarefa } from './Tarefa';
 
 export interface Feedback {
   id: number;
   nota: number;
   observacao: string;
-  historico: Historico; // Usando a interface 'Historico' como tipo
+  tarefaFeedback: Tarefa; // Usando a interface 'Historico' como tipo
 }
