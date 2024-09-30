@@ -22,11 +22,7 @@ public class Tarefa {
     @Nonnull
     private String titulo;
 
-    private String fonteFiltro;
-
-    private String fonteTorneira;
-
-    private String fonteMangueira;
+    private String fonte;
 
     private Integer valorHora;
 
@@ -41,11 +37,6 @@ public class Tarefa {
 
     private boolean favorito;
 
-    @OneToMany(mappedBy = "tarefaHistorico")
-    private List<Historico> historicos;
-
-    @ManyToOne
-    @JoinColumn(name = "tipo_tarefa_id")
-    private TipoTarefa tipoTarefa;
+    private String tipoTarefa;
 
 }

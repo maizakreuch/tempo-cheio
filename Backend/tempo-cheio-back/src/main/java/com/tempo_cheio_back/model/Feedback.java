@@ -29,6 +29,6 @@ public class Feedback {
     private String observacao;
 
     @ManyToOne
-    @JoinColumn(name = "historico_id")
-    private Historico historico;
+    @JoinColumn(name = "tarefa_id")
+    private Tarefa tarefaFeedback;
 }
