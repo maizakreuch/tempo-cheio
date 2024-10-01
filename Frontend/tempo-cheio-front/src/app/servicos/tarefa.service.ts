@@ -1,39 +1,29 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tarefa } from '../interfaces/Tarefa';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Tarefa } from '../interfaces/Tarefa';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TarefaService {
+  private baseUrl = 'http://localhost:8080/tarefa'; // Altere para a URL correta
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  private apiUrl = 'http://localhost:8080/tarefa';
-
-  findAll(): Observable<Tarefa[]> {
-    return this.http.get<Tarefa[]>(this.apiUrl);
+  getTarefaById(id: number): Observable<Tarefa> {
+    return this.http.get<Tarefa>(`${this.baseUrl}/${id}`);
   }
 
   findById(id: number): Observable<Tarefa> {
-    return this.http.get<Tarefa>(`${this.apiUrl}/${id}`);
+    return this.http.get<Tarefa>(`${this.baseUrl}/${id}`);
+  }
+
+  findAll(): Observable<Tarefa[]> {
+    return this.http.get<Tarefa[]>(this.baseUrl);
   }
 
   add(tarefa: Tarefa): Observable<Tarefa> {
-    return this.http.post<Tarefa>(this.apiUrl, tarefa);
+    return this.http.post<Tarefa>(`${this.baseUrl}`, tarefa);
   }
-
-  update(tarefa: Tarefa): Observable<Tarefa> {
-    return this.http.put<Tarefa>(`${this.apiUrl}/${tarefa.id}`, tarefa);
-  }
-
-  delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  }
-  
-  addToFavoritos(tarefa: Tarefa): Observable<any> {
-    return this.http.post('URL_DO_SERVIÇO/favoritos', tarefa);
-  }
-  
 }

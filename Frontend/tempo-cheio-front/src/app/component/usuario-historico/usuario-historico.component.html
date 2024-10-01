@@ -1,22 +1,27 @@
 <app-header></app-header>
 <div class="usuario-historico-container">
+  <div class="tarefas-historico">
+    <h2>Histórico</h2>
+    <div class="botoes-historico">
+      <button class="agua-button" (click)="filtrarAgua()">Água</button>
+      <button class="total-button" (click)="filtrarTodos()">Total</button>
+      <button class="receitas-button" (click)="filtrarReceitas()">Receitas</button>
+    </div>
+  </div>
 
-    <div class="tarefas-historico">
-        <h2>Histórico</h2>
-        <div class="botoes-historico">
-          <button class="agua-button">Água</button>
-          <button class="total-button">Total</button>
-          <button class="receitas-button">Receitas</button>
-        </div>
-      </div>
-    
-      <div class="tarefa-historico-container">
-        <button class="historico-button">Arroz Integral</button>
-        <button class="historico-button">Feijão Preto</button>
-        <button class="historico-button">Brócolis</button>
-      </div>   
-
-
-
+  <div class="tarefa-historico-container">
+    <!-- Itera sobre a lista de históricos e exibe o título da tarefa -->
+    <button
+      *ngFor="let tarefa of listaTarefasFiltro" class="total-button"
+      [ngClass]="{
+        'total-button': tipo == 'todos',
+        'agua-button': tipo == 'agua',
+        'receitas-button': tipo == 'receitas',
+      }"
+      [routerLink]="['/editar-tarefa/edit', tarefa.id]">
+      {{ tarefa.titulo }}
+    </button>
+           
+  </div>
 </div>
 <app-footer></app-footer>

@@ -11,7 +11,7 @@ export class UsuarioPerfilComponent {
   modalVerificacaoVisible: boolean = false; // Controla a visibilidade do modal
 
   compartilhar() {
-    const link = window.location.href; // Pega o link da tela atual
+    const link = 'http://localhost:4200/usuario-login'; // Define o link da página
 
     // Copia o link para a área de transferência
     navigator.clipboard.writeText(link).then(() => {
@@ -20,6 +20,11 @@ export class UsuarioPerfilComponent {
     }).catch(err => {
       console.error('Erro ao copiar o link: ', err);
     });
+  }
+
+  abrirLink() {
+    // Abre o link em uma nova aba
+    window.open('http://localhost:4200/usuario-login', '_blank');
   }
 
   mostrarModalVerificacao() {

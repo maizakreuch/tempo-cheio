@@ -12,10 +12,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class EditarTarefaComponent implements OnInit {
   cadastroForm!: FormGroup;
   medidaUnidade: string = '';
-
   tarefa: Tarefa = {
     id: 0,
-    titulo: '', // Este campo será definido ao inicializar a tarefa
+    titulo: '',
     valorHora: 0,
     valorMinuto: 0,
     valorSegundo: 0,
@@ -23,81 +22,91 @@ export class EditarTarefaComponent implements OnInit {
     quantidade: 0,
     favorito: false,
     tipoTarefa: '',
-    fonte: '', // Inicializando com uma opção padrão
-    fonteDescricao: '' // Campo para descrever a fonte da tarefa
+    fonte: '',
+    fonteDescricao: ''
   };
 
-  tipo!: string; // Usando o operador de declaração não nula
+  tipo!: string;
+  isFavorito: boolean = false;
 
   constructor(
     private router: Router,
     private tarefaService: TarefaService,
-    private route: ActivatedRoute // Injeta o ActivatedRoute
-  ) {}
-
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
-    // Captura o parâmetro 'tipo' da rota
     this.route.paramMap.subscribe(params => {
-      this.tipo = params.get('tipo') || ''; // Armazena o tipo de tarefa
-      this.inicializarTarefa(); // Inicializa a tarefa com base no tipo
+      this.tipo = params.get('tipo') || '';
+      this.inicializarTarefa();
       this.tarefa.tipoTarefa = this.tipo;
 
-      if (this.tipo == 'agua') {
-        this.medidaUnidade = 'ML'
-      }
-
-      if (this.tipo == 'receitas') {
-        this.medidaUnidade = 'G'
-      }
-
+      this.validarMedidaUnidade();
       this.validarFonte();
+
+      const id: number = Number(params.get('id'));
+      if (id && id != 0) {
+        this.tarefaService.findById(id).subscribe(tarefa => {
+          this.tarefa = tarefa;
+          this.tipo = tarefa.tipoTarefa;
+          this.isFavorito = tarefa.favorito;
+          this.validarMedidaUnidade();
+        });
+      }
+
     });
+  }
+
+  validarMedidaUnidade() {
+    if (this.tipo === 'agua') {
+      this.medidaUnidade = 'ML';
+    } else if (this.tipo === 'receitas') {
+      this.medidaUnidade = 'G';
+    }
   }
 
   inicializarTarefa(): void {
     if (this.tipo === 'agua') {
       this.tarefa.fonteDescricao = 'Filtro de Água';
-      // Configure outras propriedades específicas para água, se necessário
     } else if (this.tipo === 'receitas') {
       this.tarefa.fonteDescricao = 'Filtro de Receitas';
-      // Configure outras propriedades específicas para receitas, se necessário
     }
   }
 
   salvar() {
     this.tarefa.medidaUnidade = this.medidaUnidade;
-    this.tarefaService.add(this.tarefa).subscribe(novaTarefa => {
-      this.router.navigate(['/cronometro-tarefa', novaTarefa.id]);
-    });
-  }
+    console.log('Tarefa a ser salva:', this.tarefa);
 
-  
-
-  marcarComoFavorito() {
-    this.tarefa.favorito = true;
-    this.tarefaService.addToFavoritos(this.tarefa).subscribe(() => {
-      console.log('Tarefa marcada como favorita com sucesso!');
+    this.tarefaService.add(this.tarefa).subscribe({
+        next: (novaTarefa) => {
+            console.log('Nova Tarefa ID:', novaTarefa.id);
+            this.router.navigate(['/cronometro-tarefa', novaTarefa.id]);
+        },
+        error: (error) => {
+            console.error('Erro ao salvar a tarefa:', error);
+        }
     });
+}
+
+
+switchFavorito() {
+    this.tarefa.favorito = !this.tarefa.favorito
+    this.isFavorito = this.tarefa.favorito;
   }
 
   trocarMedida(medida: string) {
     this.medidaUnidade = medida;
   }
 
-  // Método para lidar com a mudança na seleção do filtro
   onFonteChange(event: any) {
-    this.tarefa.fonte = event.target.value; // Atualiza a propriedade fonte com o valor selecionado
+    this.tarefa.fonte = event.target.value;
   }
 
   validarFonte() {
-    if (this.tipo == 'agua') {
+    if (this.tipo === 'agua') {
       this.tarefa.fonte = 'Filtro';
-    }
-    if (this.tipo == 'receitas') {
+    } else if (this.tipo === 'receitas') {
       this.tarefa.fonte = 'Fogão';
     }
   }
-  
-
 }

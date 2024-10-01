@@ -1,34 +1,33 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Historico } from '../interfaces/Historico';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Historico } from '../interfaces/Historico';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HistoricoService {
+  private apiUrl = 'http://localhost:8080/historicos'; // Ajuste a URL conforme necessário
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  private apiUrl = 'http://localhost:8080/historico';
-
+  // Método para obter todos os históricos
   findAll(): Observable<Historico[]> {
     return this.http.get<Historico[]>(this.apiUrl);
   }
 
-  findById(id: number): Observable<Historico> {
-    return this.http.get<Historico>(`${this.apiUrl}/${id}`);
-  }
-
-  add(historico: Historico): Observable<Historico> {
+  // Método para criar um novo histórico
+  createHistorico(historico: Historico): Observable<Historico> {
     return this.http.post<Historico>(this.apiUrl, historico);
   }
 
-  update(historico: Historico): Observable<Historico> {
-    return this.http.put<Historico>(`${this.apiUrl}/${historico.id}`, historico);
+  // Método para atualizar um histórico existente
+  updateHistorico(id: number, historico: Historico): Observable<Historico> {
+    return this.http.put<Historico>(`${this.apiUrl}/${id}`, historico);
   }
 
-  delete(id: number): Observable<void> {
+  // Método para deletar um histórico
+  deleteHistorico(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

@@ -23,9 +23,10 @@ const routes: Routes = [
   { path: 'usuario-perfil', component: UsuarioPerfilComponent }, // Define a rota para o perfil do usuário
   { path: 'usuario-fav', component: UsuarioFavComponent }, // Adicione a rota
   { path: 'usuario-historico', component: UsuarioHistoricoComponent},
-  {path: 'editar-tarefa', component: EditarTarefaComponent},
+  { path: 'editar-tarefa/edit/:id', component: EditarTarefaComponent},
   { path: 'editar-tarefa/:tipo', component: EditarTarefaComponent },
   { path: 'cronometro-tarefa/:id', component: CronometroTarefaComponent },
+  { path: 'cronometro-tarefa', component: CronometroTarefaComponent },
   { path: 'avaliar-tarefa/:id', component: AvaliarTarefaComponent },
   { path: 'tela-principal', component: TelaPrincipalComponent },
   { path: '', redirectTo: '/tela-principal', pathMatch: 'full' },

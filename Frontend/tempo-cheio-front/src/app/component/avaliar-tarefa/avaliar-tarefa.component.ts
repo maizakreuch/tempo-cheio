@@ -47,10 +47,10 @@ export class AvaliarTarefaComponent {
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.tarefaService.findById(id).subscribe(retorno => {
+    this.tarefaService.findById(id).subscribe((retorno: Tarefa) => {
       this.tarefa = retorno;
     });
-  }
+  }  
 
   // Função para redirecionar para a tela principal
   avaliarTarefa() {
@@ -67,6 +67,13 @@ export class AvaliarTarefaComponent {
     this.router.navigate(['/tela-principal'])
   }
 }
+
+
+
+
+
+
+
 
 
 

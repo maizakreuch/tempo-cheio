@@ -4,7 +4,7 @@
 
   <div class="header">
     <!-- Ícone de estrela -->
-    <i class="fas fa-star icon-estrela" (click)="marcarComoFavorito()" *ngIf="tarefa.id"></i>
+    <i class="fas fa-star icon-estrela" [ngClass]="{'favorito': isFavorito}" (click)="switchFavorito()" *ngIf="tarefa.id"></i>
     <input type="text" id="titulo" name="titulo" placeholder="Título" class="titulo-selector" 
     [(ngModel)]="tarefa.titulo">
   </div>
@@ -79,13 +79,15 @@
   </div>
 
   <button 
-    (click)="salvar()"
-    [ngClass]="{
-      'salvar-button-agua': tipo == 'agua',
-      'salvar-button-receitas': tipo == 'receitas',
-    }"
-  >Salvar
-  </button>
+  (click)="salvar()"
+  [ngClass]="{
+    'salvar-button-agua': tipo === 'agua',
+    'salvar-button-receitas': tipo === 'receitas'
+  }"
+>
+  Salvar
+</button>
+
 
 </div>
 <app-footer></app-footer>
