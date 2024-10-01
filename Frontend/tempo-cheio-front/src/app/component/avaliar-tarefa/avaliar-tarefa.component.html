@@ -8,16 +8,26 @@
 
         <div class="estrelas" (click)="avaliar($event)">
             <i *ngFor="let estrela of estrelas; let i = index" class="fas fa-star" [id]="i"
-                [ngClass]="{'selected': i < rating}"></i>
+                [ngClass]="{
+                    'selected': i < rating,
+                    'agua-selected': tarefa.tipoTarefa == 'agua' && i < rating,
+                    'receitas-selected': tarefa.tipoTarefa == 'receitas' && i < rating
+                }"></i>
         </div>
+        
 
         <input type="text" class="experiencia-input" placeholder="Registre sua experiência com Tempo Cheio"
             [(ngModel)]="feedback.observacao" />
 
-        <div class="botoes">
-            <button class="voltar-button" (click)="voltarTarefa()">Cancelar</button>
-            <button class="avaliar-button" (click)="avaliarTarefa()">Avaliar</button>
-        </div>
-
+            <div class="botoes">
+                <button class="voltar-button" (click)="voltarTarefa()">Cancelar</button>
+                <button class="avaliar-button"
+                    [ngClass]="{
+                        'agua': tarefa.tipoTarefa == 'agua',
+                        'receitas': tarefa.tipoTarefa == 'receitas'
+                    }"
+                    (click)="avaliarTarefa()">Avaliar</button>
+            </div>
+            
     </div>
 </section>

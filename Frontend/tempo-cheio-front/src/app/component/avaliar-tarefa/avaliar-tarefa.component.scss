@@ -6,8 +6,8 @@ section {
 
 .agua {
     background-color: #0097b2;
-  } 
-  
+} 
+
 .receitas {
     background-color: #d93f29;
 }
@@ -72,22 +72,56 @@ section {
         display: flex;
         justify-content: space-between;
         width: 70%;
-
+    
         button {
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
             font-size: 1rem;
-            background-color: #f1f1f1; // Cor dos botões
-
+            color: #f1f1f1; // Cor do texto padrão
+            background-color: #231f20; // Cor de fundo padrão
+    
+            &.agua {
+                background-color: #0097b2; // Cor para o tipo 'água'
+            }
+    
+            &.receitas {
+                background-color: #d93f29; // Cor para o tipo 'receitas'
+            }
+    
             &:hover {
-                background-color: #d93f29; // Cor ao passar o mouse
+                background-color: #f1f1f1; // Cor ao passar o mouse (pode ajustar conforme necessário)
             }
         }
     }
+    
 
-    .select{
+    .select {
         background-color: #d93f29;
     }
+
+    .estrelas {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    
+        .fa-star {
+            color: #ccc; // Cor padrão
+            cursor: pointer;
+            font-size: 2rem;
+            margin: 0 5px;
+    
+            &.selected {
+                // As cores abaixo serão diferentes dependendo do tipo de tarefa
+                &.agua-selected {
+                    color: #0097b2; // Cor ao selecionar para 'água'
+                }
+                &.receitas-selected {
+                    color: #d93f29; // Cor ao selecionar para 'receitas'
+                }
+            }
+        }
+    }
+    
 }

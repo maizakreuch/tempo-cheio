@@ -31,11 +31,15 @@ export class UsuarioFavComponent implements OnInit {
   }
 
   filtrarAgua() {
+    // Filtra as tarefas favoritas do tipo 'agua'
+    this.filtrarFavoritas(); // Refiltra as favoritas antes de aplicar o filtro de água
     this.listaTarefasFiltro = this.listaTarefasFiltro.filter(tarefa => tarefa.tipoTarefa === 'agua');
     this.tipo = 'agua';
   }
 
   filtrarReceitas() {
+    // Filtra as tarefas favoritas do tipo 'receitas'
+    this.filtrarFavoritas(); // Refiltra as favoritas antes de aplicar o filtro de receitas
     this.listaTarefasFiltro = this.listaTarefasFiltro.filter(tarefa => tarefa.tipoTarefa === 'receitas');
     this.tipo = 'receitas';
   }

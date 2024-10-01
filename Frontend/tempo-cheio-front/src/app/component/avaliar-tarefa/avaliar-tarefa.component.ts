@@ -23,6 +23,7 @@ export class AvaliarTarefaComponent {
     quantidade: 0,
     favorito: false,
     tipoTarefa: '',
+    tipo: '',  // Este é o campo que está faltando
     fonte: ''
   };
   feedback: Feedback = {
@@ -54,42 +55,15 @@ export class AvaliarTarefaComponent {
 
   // Função para redirecionar para a tela principal
   avaliarTarefa() {
-
     this.feedback.nota = this.rating;
     this.feedback.tarefaFeedback = this.tarefa;
 
     this.feedbackService.add(this.feedback).subscribe(() => {
       this.router.navigate(['/tela-principal']);
     });
-
   }
-  voltarTarefa(){
-    this.router.navigate(['/tela-principal'])
+
+  voltarTarefa() {
+    this.router.navigate(['/tela-principal']);
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

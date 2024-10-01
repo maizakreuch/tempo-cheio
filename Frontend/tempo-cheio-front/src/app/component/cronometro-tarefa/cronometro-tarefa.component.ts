@@ -20,6 +20,7 @@ export class CronometroTarefaComponent implements OnInit { // Implementando OnIn
     quantidade: 0,
     favorito: false,
     tipoTarefa: '',
+    tipo: '',  
     fonte: ''
   };
 

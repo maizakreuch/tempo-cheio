@@ -1,68 +1,31 @@
 .usuario-historico-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 120px;    
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px; // Adicione um padding se necessário para distanciamento
 
-  
-    .tarefas-historico {
-      margin-top: 20px;
-      margin-bottom: 3px; // Adiciona margem inferior para separar do próximo bloco
-      text-align: center;
-      width: 100%;
-      padding: 0 20px; // Adiciona padding para espaçamento horizontal
-  
-      h2 {
-        color: #231f20;
-        font-size: 2rem;
-        margin-bottom: 20px;
-      }
-  
-      .botoes-historico {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-  
-        button {
-          width: 150px;
-          padding: 15px;
-          font-size: 1.2rem;
-          color: #f1f1f1;
-          border: none;
-          border-radius: 10px;
-          cursor: pointer;
-        }
-  
-        .agua-button {
-          background-color: #0097b2;
-        }
-  
-        .total-button {
-          background-color: #231f20;
-        }
-  
-        .receitas-button {
-          background-color: #d93f29;
-        }
-      }
+
+  .tarefas-historico {
+    margin-top: 100px;
+    margin-bottom: 40px; // Adiciona margem inferior para separar do próximo bloco
+    text-align: center;
+    width: 100%;
+    padding: 0 20px; // Adiciona padding para espaçamento horizontal
+
+    h2 {
+      color: #231f20;
+      font-size: 2rem;
+      margin-bottom: 20px;
     }
-  
-    .tarefa-historico-container{
+
+    .botoes-tarefas {
       display: flex;
-      flex-direction: column; 
-      align-items: center;
       justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 20px;     // Adiciona padding para espaçamento horizontal
-      max-height: 532px;
-      overflow-y: auto;
-      // background-color: red;
-  
+      gap: 20px;
+
       button {
-        width: 100%;
-        max-width: 300px;
+        width: 150px;
         padding: 15px;
         font-size: 1.2rem;
         color: #f1f1f1;
@@ -70,17 +33,56 @@
         border-radius: 10px;
         cursor: pointer;
       }
+
+      .agua-button {
+        background-color: #0097b2;
+      }
+
+      .total-button {
+        background-color: #231f20;
+      }
+
+      .receitas-button {
+        background-color: #d93f29;
+      }
     }
   }
 
-  .agua-button {
-    background-color: #0097b2;
-  }
+.tarefa-historico-container{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 40px; // Adiciona margem inferior para separar do footer
+  padding: 20px;     // Adiciona padding para espaçamento horizontal
+  max-height: 510px;
+  overflow-y: auto;
 
-  .total-button {
-    background-color: #231f20;
+  button {
+    width: 100%;
+    max-width: 300px;
+    padding: 15px;
+    font-size: 1.2rem;
+    color: #f1f1f1;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 7px;
   }
+}
 
-  .receitas-button {
-    background-color: #d93f29;
-  }
+
+.agua-button {
+background-color: #0097b2;
+}
+
+.total-button {
+background-color: #231f20;
+}
+
+.receitas-button {
+background-color: #d93f29;
+}
+}

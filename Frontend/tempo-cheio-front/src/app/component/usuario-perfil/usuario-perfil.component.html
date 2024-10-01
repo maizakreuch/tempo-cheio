@@ -1,14 +1,22 @@
 <app-header></app-header>
 <div class="usuario-perfil-container">
 
-    <div class="tarefas-finalizadas">
-      <h2>Tarefas Finalizadas</h2>
-      <div class="botoes-tarefas">
-        <button class="agua-button">Água</button>
-        <button class="total-button">Total</button>
-        <button class="receitas-button">Receitas</button>
-      </div>
+  <div class="tarefas-finalizadas">
+    <h2>Tarefas Finalizadas</h2>
+    <div class="botoes-tarefas">
+      <button class="agua-button" (click)="inicializarTarefa('agua')">
+        Água ({{ quantTarefasAgua }})
+      </button>
+      <button class="total-button" (click)="inicializarTarefa('total')">
+        Total ({{ quantTarefasTotal }})
+      </button>
+      <button class="receitas-button" (click)="inicializarTarefa('receitas')">
+        Receitas ({{ quantTarefasReceitas }})
+      </button>
     </div>
+  </div>
+  
+  
 
     <button class="compartilhar-button" (click)="compartilhar()">
         Compartilhar <span class="icon"><i class="fas fa-tint"></i></span>

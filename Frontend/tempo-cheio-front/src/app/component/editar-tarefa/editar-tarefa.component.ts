@@ -22,6 +22,7 @@ export class EditarTarefaComponent implements OnInit {
     quantidade: 0,
     favorito: false,
     tipoTarefa: '',
+    tipo: '',  
     fonte: '',
     fonteDescricao: ''
   };
@@ -69,7 +70,7 @@ export class EditarTarefaComponent implements OnInit {
     if (this.tipo === 'agua') {
       this.tarefa.fonteDescricao = 'Filtro de Água';
     } else if (this.tipo === 'receitas') {
-      this.tarefa.fonteDescricao = 'Filtro de Receitas';
+      this.tarefa.fonteDescricao = 'Aparelho da Receita';
     }
   }
 

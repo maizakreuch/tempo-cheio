@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TarefaService } from '../../servicos/tarefa.service';
 
 @Component({
   selector: 'app-usuario-perfil',
@@ -9,6 +10,24 @@ export class UsuarioPerfilComponent {
   emailParaVerificacao: string = ''; // Armazena o email a ser verificado
   mensagemEmail: string = ''; // Mensagem para exibir ao usuário
   modalVerificacaoVisible: boolean = false; // Controla a visibilidade do modal
+  quantTarefasAgua: number = 0; // Quantidade de tarefas de água
+  quantTarefasReceitas: number = 0; // Quantidade de tarefas de receitas
+  quantTarefasTotal: number = 0; // Quantidade total de tarefas
+  tipo: string = ''; // Inicializa com uma string vazia
+
+  constructor(private tarefaService: TarefaService) {}
+
+  ngOnInit() {
+    this.carregarTarefas(); // Carrega as tarefas ao iniciar o componente
+  }
+
+  carregarTarefas() {
+    this.tarefaService.findAll().subscribe(tarefas => {
+      this.quantTarefasAgua = tarefas.filter(tarefa => tarefa.tipo === 'agua').length;
+      this.quantTarefasReceitas = tarefas.filter(tarefa => tarefa.tipo === 'receitas').length;
+      this.quantTarefasTotal = tarefas.length; // Total de tarefas
+    });
+  }
 
   compartilhar() {
     const link = 'http://localhost:4200/usuario-login'; // Define o link da página
@@ -44,5 +63,9 @@ export class UsuarioPerfilComponent {
     } else {
       this.mensagemEmail = 'Por favor, digite um email válido.';
     }
+  }
+
+  inicializarTarefa(tipo: string): void {
+    console.log(`Inicializando tarefa para ${tipo}.`);
   }
 }

@@ -7,7 +7,8 @@ export interface Tarefa {
   medidaUnidade: string;
   quantidade: number;
   favorito: boolean;
-  tipoTarefa: string; // ou outro tipo apropriado
+  tipo: string;  // Este é o campo que está faltando
+  tipoTarefa: string;
   fonte: string;
-  fonteDescricao?: string; // Adicione esta linha
+  fonteDescricao?: string;  // Este pode ser opcional
 }
