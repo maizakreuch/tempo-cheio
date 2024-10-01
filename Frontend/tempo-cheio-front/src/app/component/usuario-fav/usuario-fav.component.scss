@@ -48,30 +48,40 @@
     }
   }
 
-  .fav-tarefa-container {
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.fav-tarefa-container{
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 40px; // Adiciona margem inferior para separar do footer
+  padding: 20px;     // Adiciona padding para espaçamento horizontal
+  max-height: 520px;
+  overflow-y: auto;
+
+  button {
     width: 100%;
-    margin-bottom: 40px; // Adiciona margem inferior para separar do footer
-    padding: 0 20px;     // Adiciona padding para espaçamento horizontal
-
-    button {
-      width: 100%;
-      max-width: 300px;
-      padding: 15px;
-      font-size: 1.2rem;
-      background-color: #0097b2;
-      color: #f1f1f1;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-
-      &:hover {
-        background-color: #007a8f;
-      }
-    }
+    max-width: 300px;
+    padding: 15px;
+    font-size: 1.2rem;
+    color: #f1f1f1;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
   }
+}
+
+
+.agua-button {
+background-color: #0097b2;
+}
+
+.total-button {
+background-color: #231f20;
+}
+
+.receitas-button {
+background-color: #d93f29;
+}
 }

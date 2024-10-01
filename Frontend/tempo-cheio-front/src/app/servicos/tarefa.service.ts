@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Tarefa } from '../interfaces/Tarefa';
 
 @Injectable({
@@ -25,5 +25,10 @@ export class TarefaService {
 
   add(tarefa: Tarefa): Observable<Tarefa> {
     return this.http.post<Tarefa>(`${this.baseUrl}`, tarefa);
+  }
+ 
+  getTarefas(): Observable<Tarefa[]> {
+    // Requisição para buscar as tarefas do backend
+    return this.http.get<Tarefa[]>('http://localhost:8080/tarefa');
   }
 }
