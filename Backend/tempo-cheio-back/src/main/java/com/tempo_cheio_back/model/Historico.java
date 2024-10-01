@@ -1,6 +1,5 @@
 package com.tempo_cheio_back.model;
 
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,7 +15,7 @@ import java.util.Date;
 public class Historico {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Date data;
@@ -30,5 +29,4 @@ public class Historico {
     @ManyToOne
     @JoinColumn(name = "tarefa_id")
     private Tarefa tarefaHistorico;
-
 }

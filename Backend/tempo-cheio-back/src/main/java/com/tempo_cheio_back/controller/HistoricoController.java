@@ -5,6 +5,7 @@ import com.tempo_cheio_back.service.HistoricoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -12,7 +13,7 @@ import java.util.List;
 public class HistoricoController {
 
     @Autowired
-    HistoricoService historicoService;
+    private HistoricoService historicoService;
 
     @GetMapping
     public ResponseEntity<List<Historico>> findAll() {
@@ -30,15 +31,14 @@ public class HistoricoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Historico> update(@RequestBody Historico historico) {
+    public ResponseEntity<Historico> update(@PathVariable Integer id, @RequestBody Historico historico) {
+        historico.setId(id); // Atualiza o ID do objeto para o ID na URL
         return ResponseEntity.ok(historicoService.save(historico));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Historico> delete(@PathVariable Integer id) {
-        Historico historico = historicoService.findById(id);
-        historicoService.delete(historico);
-        return ResponseEntity.ok(historico);
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        historicoService.delete(id);
+        return ResponseEntity.noContent().build();
     }
-
 }

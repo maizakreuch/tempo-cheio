@@ -11,7 +11,7 @@ import java.util.List;
 public class HistoricoService {
 
     @Autowired
-    HistoricoRepository historicoRepository;
+    private HistoricoRepository historicoRepository;
 
     public List<Historico> findAll() {
         return historicoRepository.findAll();
@@ -25,7 +25,8 @@ public class HistoricoService {
         return historicoRepository.save(historico);
     }
 
-    public void delete(Historico historico) {
-        historicoRepository.delete(historico);
+    public void delete(Integer id) {
+        historicoRepository.deleteById(id);
     }
 }
+
