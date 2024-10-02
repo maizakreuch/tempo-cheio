@@ -23,12 +23,21 @@ export class UsuarioPerfilComponent {
 
   carregarTarefas() {
     this.tarefaService.findAll().subscribe(tarefas => {
-      this.quantTarefasAgua = tarefas.filter(tarefa => tarefa.tipo === 'agua').length;
-      this.quantTarefasReceitas = tarefas.filter(tarefa => tarefa.tipo === 'receitas').length;
-      this.quantTarefasTotal = tarefas.length; // Total de tarefas
+      console.log(tarefas); // Verifique o que está sendo retornado
+  
+      this.quantTarefasAgua = tarefas.filter(tarefa => 
+        tarefa.tipoTarefa?.trim().toLowerCase() === 'agua').length;
+      
+      this.quantTarefasReceitas = tarefas.filter(tarefa => 
+        tarefa.tipoTarefa?.trim().toLowerCase() === 'receitas').length;
+  
+      this.quantTarefasTotal = tarefas.length;
     });
   }
-
+  
+  
+  
+  
   compartilhar() {
     const link = 'http://localhost:4200/usuario-login'; // Define o link da página
 
